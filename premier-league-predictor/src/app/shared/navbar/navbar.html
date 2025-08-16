@@ -1,0 +1,62 @@
+<div class="navbar bg-primary text-primary-content shadow-lg">
+  <div class="navbar-start">
+    <div class="dropdown">
+      <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
+        <i class="fas fa-bars text-xl"></i>
+      </div>
+      <ul
+        tabindex="0"
+        class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52 text-base-content"
+      >
+        <li><i class="fas fa-home mr-2"></i>Dashboard</li>
+        <li>
+          <a href="games.html"><i class="fas fa-futbol mr-2"></i>Fixtures</a>
+        </li>
+        <li>
+          <a href="predictions.html"
+            ><i class="fas fa-crystal-ball mr-2"></i>Predictions</a
+          >
+        </li>
+        <li>
+          <a href="leaderboard.html"
+            ><i class="fas fa-trophy mr-2"></i>Leaderboard</a
+          >
+        </li>
+      </ul>
+    </div>
+    <a href="index.html" class="btn btn-ghost text-xl font-bold">
+      <i class="fas fa-futbol mr-2"></i>PL Predictor
+    </a>
+  </div>
+  <div class="navbar-center hidden lg:flex">
+    <ul class="menu menu-horizontal px-1">
+      <li>
+        <a [routerLink]="['/dashboard']" class="font-semibold bg-primary-focus"
+          ><i class="fas fa-home mr-2"></i>Dashboard</a
+        >
+      </li>
+      <li>
+        <a href="games.html"><i class="fas fa-futbol mr-2"></i>Fixtures</a>
+      </li>
+      <li>
+        <a href="predictions.html"
+          ><i class="fas fa-crystal-ball mr-2"></i>Predictions</a
+        >
+      </li>
+      <li>
+        <a href="leaderboard.html"
+          ><i class="fas fa-trophy mr-2"></i>Leaderboard</a
+        >
+      </li>
+    </ul>
+  </div>
+  <div class="navbar-end">
+    <a
+      [routerLink]="['/login']"
+      routerLinkActive="router-link-active"
+      class="btn btn-ghost"
+    >
+      <i class="fas fa-user mr-2"></i>Login
+    </a>
+  </div>
+</div>

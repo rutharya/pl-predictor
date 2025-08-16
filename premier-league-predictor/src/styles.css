@@ -1,0 +1,35 @@
+/* @import "tailwindcss/base"; */
+/* @import "tailwindcss/components"; */
+@import "tailwindcss/utilities";
+@import "tailwindcss";
+/* @tailwind base; */
+/* @tailwind components; */
+@tailwind utilities;
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.1);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.5);
+}
+
+/* Smooth transitions */
+* {
+  transition: color 150ms ease, background-color 150ms ease,
+    border-color 150ms ease;
+}
+
+.router-link-active {
+  @apply bg-green-100 text-green-700;
+}

@@ -1,0 +1,578 @@
+<div
+  class="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900"
+>
+  <div class="container mx-auto px-4 py-8">
+    <!-- Header -->
+    <div class="text-center mb-8">
+      <h1 class="text-4xl font-bold text-white mb-2">Make Predictions</h1>
+      <p class="text-white/70">
+        Predict the scores for upcoming Premier League fixtures
+      </p>
+    </div>
+
+    <!-- Gameweek Selection -->
+    <div class="mb-8 flex justify-center">
+      <div
+        class="bg-white/10 backdrop-blur-lg rounded-xl p-1 border border-white/20"
+      >
+        @for (gw of availableGameweeks(); track gw) {
+        <button
+          (click)="setGameweek(gw)"
+          [class]="getGameweekButtonClass(gw)"
+          class="px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 mx-1"
+        >
+          GW {{ gw }}
+        </button>
+        }
+      </div>
+    </div>
+
+    <!-- Auto-save Status -->
+    <div class="mb-6 text-center">
+      @if (isSaving()) {
+      <div class="inline-flex items-center space-x-2 text-blue-400">
+        <svg class="animate-spin w-4 h-4" fill="none" viewBox="0 0 24 24">
+          <circle
+            class="opacity-25"
+            cx="12"
+            cy="12"
+            r="10"
+            stroke="currentColor"
+            stroke-width="4"
+          ></circle>
+          <path
+            class="opacity-75"
+            fill="currentColor"
+            d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+          ></path>
+        </svg>
+        <span class="text-sm">Saving...</span>
+      </div>
+      } @else if (lastSavedTime()) {
+      <div class="text-green-400 text-sm">
+        <svg
+          class="inline w-4 h-4 mr-1"
+          fill="currentColor"
+          viewBox="0 0 20 20"
+        >
+          <path
+            fill-rule="evenodd"
+            d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+            clip-rule="evenodd"
+          />
+        </svg>
+        Last saved {{ formatLastSaved() }}
+      </div>
+      }
+    </div>
+
+    <!-- Loading State -->
+    @if (isLoading()) {
+    <div class="space-y-8">
+      @for (day of [1,2,3]; track day) {
+      <div
+        class="backdrop-blur-lg bg-white/5 border border-white/10 rounded-2xl p-6"
+      >
+        <div class="h-6 bg-white/20 rounded mb-6 animate-pulse"></div>
+        <div class="space-y-4">
+          @for (fixture of [1,2,3]; track fixture) {
+          <div class="bg-white/5 rounded-xl p-4 animate-pulse">
+            <div class="flex items-center justify-between">
+              <div class="flex items-center space-x-4">
+                <div class="w-10 h-10 bg-white/20 rounded-full"></div>
+                <div class="h-4 bg-white/20 rounded w-24"></div>
+              </div>
+              <div class="flex items-center space-x-4">
+                <div class="w-12 h-8 bg-white/20 rounded"></div>
+                <div class="w-12 h-8 bg-white/20 rounded"></div>
+              </div>
+              <div class="flex items-center space-x-4">
+                <div class="h-4 bg-white/20 rounded w-24"></div>
+                <div class="w-10 h-10 bg-white/20 rounded-full"></div>
+              </div>
+            </div>
+          </div>
+          }
+        </div>
+      </div>
+      }
+    </div>
+    }
+
+    <!-- Empty State -->
+    @if (!isLoading() && Object.keys(groupedFixtures()).length === 0) {
+    <div class="text-center py-16">
+      <div
+        class="w-24 h-24 bg-white/10 rounded-full flex items-center justify-center mx-auto mb-4"
+      >
+        <svg
+          class="w-12 h-12 text-white/60"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
+          />
+        </svg>
+      </div>
+      <h3 class="text-xl font-semibold text-white mb-2">
+        No Fixtures Available
+      </h3>
+      <p class="text-white/60">
+        No fixtures found for gameweek {{ selectedGameweek() }}
+      </p>
+    </div>
+    }
+
+    <!-- Fixtures by Match Day -->
+    @if (!isLoading() && Object.keys(groupedFixtures()).length > 0) {
+    <div class="space-y-8">
+      @for (matchDay of Object.keys(groupedFixtures()); track matchDay) {
+      <div
+        class="backdrop-blur-lg bg-white/5 border border-white/10 rounded-2xl p-6 animate-slide-in"
+      >
+        <!-- Match Day Header -->
+        <div class="mb-6">
+          <h2 class="text-2xl font-bold text-white">{{ matchDay }}</h2>
+        </div>
+
+        <!-- Fixtures for this match day -->
+        <div class="space-y-4">
+          @for (fixture of groupedFixtures()[matchDay]; track fixture.id) {
+          <div
+            [class]="getFixtureCardClass(fixture)"
+            class="bg-white/5 rounded-xl p-4 md:p-6 transition-all duration-300 hover:bg-white/10 group"
+          >
+            <!-- Mobile Layout -->
+            <div class="md:hidden">
+              <!-- Team Names & Logos -->
+              <div class="flex items-center justify-between mb-4">
+                <div class="flex items-center space-x-3 flex-1">
+                  @if (fixture.homeTeamLogo) {
+                  <img
+                    [src]="fixture.homeTeamLogo"
+                    [alt]="fixture.homeTeam"
+                    class="w-8 h-8 rounded-full object-cover"
+                  />
+                  } @else {
+                  <div
+                    class="w-8 h-8 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center"
+                  >
+                    <span class="text-xs font-bold text-white">{{
+                      getTeamInitials(fixture.homeTeam)
+                    }}</span>
+                  </div>
+                  }
+                  <span class="text-white font-medium text-sm">{{
+                    fixture.homeTeam
+                  }}</span>
+                </div>
+
+                <div class="text-white/60 text-xs">vs</div>
+
+                <div class="flex items-center space-x-3 flex-1 justify-end">
+                  <span class="text-white font-medium text-sm">{{
+                    fixture.awayTeam
+                  }}</span>
+                  @if (fixture.awayTeamLogo) {
+                  <img
+                    [src]="fixture.awayTeamLogo"
+                    [alt]="fixture.awayTeam"
+                    class="w-8 h-8 rounded-full object-cover"
+                  />
+                  } @else {
+                  <div
+                    class="w-8 h-8 bg-gradient-to-br from-green-500 to-blue-600 rounded-full flex items-center justify-center"
+                  >
+                    <span class="text-xs font-bold text-white">{{
+                      getTeamInitials(fixture.awayTeam)
+                    }}</span>
+                  </div>
+                  }
+                </div>
+              </div>
+
+              <!-- Match Status & Time -->
+              <div class="text-center mb-4">
+                @if (fixture.status === 'live') {
+                <div
+                  class="inline-flex items-center space-x-2 bg-green-500/20 text-green-400 px-3 py-1 rounded-full text-sm font-medium"
+                >
+                  <div
+                    class="w-2 h-2 bg-green-400 rounded-full animate-pulse"
+                  ></div>
+                  <span
+                    >LIVE {{ fixture.homeScore }}-{{ fixture.awayScore }}</span
+                  >
+                </div>
+                } @else if (fixture.status === 'finished') {
+                <div class="text-white font-bold">
+                  {{ fixture.homeScore }}-{{ fixture.awayScore }}
+                </div>
+                <div class="text-white/60 text-xs">Full Time</div>
+                } @else {
+                <div class="text-white/80 text-sm">
+                  {{ formatKickoffTime(fixture.kickoffTime) }}
+                </div>
+                <div
+                  [class]="getDeadlineClass(fixture.predictionDeadline)"
+                  class="text-xs mt-1"
+                >
+                  Deadline:
+                  {{ getTimeUntilDeadline(fixture.predictionDeadline) }}
+                </div>
+                }
+              </div>
+
+              <!-- Prediction Form (Mobile) -->
+              @if (fixture.status === 'upcoming' &&
+              !isPredictionLocked(fixture)) {
+              <form
+                [formGroup]="getPredictionForm(fixture.id)"
+                class="space-y-3"
+              >
+                <div class="flex items-center justify-center space-x-4">
+                  <!-- Home Score -->
+                  <div class="text-center">
+                    <label class="block text-white/60 text-xs mb-1">{{
+                      fixture.homeTeam
+                    }}</label>
+                    <select
+                      [formControlName]="'homeScore'"
+                      (change)="onPredictionChange(fixture.id)"
+                      class="w-16 h-12 bg-white/10 border border-white/20 rounded-lg text-white text-center focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    >
+                      @for (score of scoreOptions; track score) {
+                      <option [value]="score" class="bg-gray-800">
+                        {{ score }}
+                      </option>
+                      }
+                    </select>
+                  </div>
+
+                  <div class="text-white/60 text-lg font-bold">-</div>
+
+                  <!-- Away Score -->
+                  <div class="text-center">
+                    <label class="block text-white/60 text-xs mb-1">{{
+                      fixture.awayTeam
+                    }}</label>
+                    <select
+                      [formControlName]="'awayScore'"
+                      (change)="onPredictionChange(fixture.id)"
+                      class="w-16 h-12 bg-white/10 border border-white/20 rounded-lg text-white text-center focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    >
+                      @for (score of scoreOptions; track score) {
+                      <option [value]="score" class="bg-gray-800">
+                        {{ score }}
+                      </option>
+                      }
+                    </select>
+                  </div>
+                </div>
+
+                @if (hasUnsavedChanges(fixture.id)) {
+                <div class="text-center">
+                  <div class="text-orange-400 text-xs">Unsaved changes</div>
+                </div>
+                }
+              </form>
+              } @else if (isPredictionLocked(fixture)) {
+              <div class="text-center">
+                <div
+                  class="inline-flex items-center space-x-2 bg-red-500/20 text-red-400 px-3 py-1 rounded-full text-sm"
+                >
+                  <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                    <path
+                      fill-rule="evenodd"
+                      d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z"
+                      clip-rule="evenodd"
+                    />
+                  </svg>
+                  <span>Predictions Locked</span>
+                </div>
+              </div>
+              }
+
+              <!-- Show User's Prediction -->
+              @if (getUserPrediction(fixture.id); as prediction) {
+              <div class="mt-3 pt-3 border-t border-white/10">
+                <div class="text-center">
+                  <div class="text-white/60 text-xs mb-1">Your Prediction</div>
+                  <div class="text-white font-semibold">
+                    {{ prediction.homeScore }}-{{ prediction.awayScore }}
+                  </div>
+                  @if (fixture.status === 'finished' && prediction.pointsEarned
+                  !== undefined) {
+                  <div
+                    [class]="getPointsClass(prediction.pointsEarned)"
+                    class="text-sm mt-1"
+                  >
+                    +{{ prediction.pointsEarned }} points
+                  </div>
+                  }
+                </div>
+              </div>
+              }
+            </div>
+
+            <!-- Desktop Layout -->
+            <div class="hidden md:block">
+              <div class="grid grid-cols-12 gap-4 items-center">
+                <!-- Home Team -->
+                <div class="col-span-3 flex items-center space-x-3">
+                  @if (fixture.homeTeamLogo) {
+                  <img
+                    [src]="fixture.homeTeamLogo"
+                    [alt]="fixture.homeTeam"
+                    class="w-10 h-10 rounded-full object-cover"
+                  />
+                  } @else {
+                  <div
+                    class="w-10 h-10 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center"
+                  >
+                    <span class="text-sm font-bold text-white">{{
+                      getTeamInitials(fixture.homeTeam)
+                    }}</span>
+                  </div>
+                  }
+                  <span class="text-white font-medium">{{
+                    fixture.homeTeam
+                  }}</span>
+                </div>
+
+                <!-- Match Time/Status -->
+                <div class="col-span-2 text-center">
+                  @if (fixture.status === 'live') {
+                  <div
+                    class="inline-flex items-center space-x-2 bg-green-500/20 text-green-400 px-3 py-1 rounded-full text-sm font-medium"
+                  >
+                    <div
+                      class="w-2 h-2 bg-green-400 rounded-full animate-pulse"
+                    ></div>
+                    <span>LIVE</span>
+                  </div>
+                  <div class="text-white font-bold mt-1">
+                    {{ fixture.homeScore }}-{{ fixture.awayScore }}
+                  </div>
+                  } @else if (fixture.status === 'finished') {
+                  <div class="text-white font-bold text-lg">
+                    {{ fixture.homeScore }}-{{ fixture.awayScore }}
+                  </div>
+                  <div class="text-white/60 text-sm">Full Time</div>
+                  } @else {
+                  <div class="text-white/80">
+                    {{ formatKickoffTime(fixture.kickoffTime) }}
+                  </div>
+                  <div
+                    [class]="getDeadlineClass(fixture.predictionDeadline)"
+                    class="text-sm mt-1"
+                  >
+                    {{ getTimeUntilDeadline(fixture.predictionDeadline) }}
+                  </div>
+                  }
+                </div>
+
+                <!-- Prediction Form/Display -->
+                <div class="col-span-4 flex items-center justify-center">
+                  @if (fixture.status === 'upcoming' &&
+                  !isPredictionLocked(fixture)) {
+                  <form
+                    [formGroup]="getPredictionForm(fixture.id)"
+                    class="flex items-center space-x-4"
+                  >
+                    <!-- Home Score -->
+                    <div class="text-center">
+                      <select
+                        [formControlName]="'homeScore'"
+                        (change)="onPredictionChange(fixture.id)"
+                        class="w-16 h-12 bg-white/10 border border-white/20 rounded-lg text-white text-center text-lg font-semibold focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
+                      >
+                        @for (score of scoreOptions; track score) {
+                        <option [value]="score" class="bg-gray-800">
+                          {{ score }}
+                        </option>
+                        }
+                      </select>
+                    </div>
+
+                    <div class="text-white/60 text-xl font-bold">-</div>
+
+                    <!-- Away Score -->
+                    <div class="text-center">
+                      <select
+                        [formControlName]="'awayScore'"
+                        (change)="onPredictionChange(fixture.id)"
+                        class="w-16 h-12 bg-white/10 border border-white/20 rounded-lg text-white text-center text-lg font-semibold focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
+                      >
+                        @for (score of scoreOptions; track score) {
+                        <option [value]="score" class="bg-gray-800">
+                          {{ score }}
+                        </option>
+                        }
+                      </select>
+                    </div>
+                  </form>
+                  } @else if (isPredictionLocked(fixture)) {
+                  <div
+                    class="inline-flex items-center space-x-2 bg-red-500/20 text-red-400 px-4 py-2 rounded-full"
+                  >
+                    <svg
+                      class="w-4 h-4"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z"
+                        clip-rule="evenodd"
+                      />
+                    </svg>
+                    <span class="font-medium">Locked</span>
+                  </div>
+                  } @else {
+                  <div class="text-white/60">Predictions Closed</div>
+                  }
+                </div>
+
+                <!-- User's Prediction & Points -->
+                <div class="col-span-2 text-center">
+                  @if (getUserPrediction(fixture.id); as prediction) {
+                  <div class="text-white font-semibold">
+                    {{ prediction.homeScore }}-{{ prediction.awayScore }}
+                  </div>
+                  <div class="text-white/60 text-sm">Your Prediction</div>
+                  @if (fixture.status === 'finished' && prediction.pointsEarned
+                  !== undefined) {
+                  <div
+                    [class]="getPointsClass(prediction.pointsEarned)"
+                    class="text-sm font-medium mt-1"
+                  >
+                    +{{ prediction.pointsEarned }} pts
+                  </div>
+                  } } @else {
+                  <div class="text-white/40 text-sm">No prediction</div>
+                  }
+                </div>
+
+                <!-- Away Team -->
+                <div class="col-span-1 flex items-center justify-end space-x-3">
+                  <span class="text-white font-medium">{{
+                    fixture.awayTeam
+                  }}</span>
+                  @if (fixture.awayTeamLogo) {
+                  <img
+                    [src]="fixture.awayTeamLogo"
+                    [alt]="fixture.awayTeam"
+                    class="w-10 h-10 rounded-full object-cover"
+                  />
+                  } @else {
+                  <div
+                    class="w-10 h-10 bg-gradient-to-br from-green-500 to-blue-600 rounded-full flex items-center justify-center"
+                  >
+                    <span class="text-sm font-bold text-white">{{
+                      getTeamInitials(fixture.awayTeam)
+                    }}</span>
+                  </div>
+                  }
+                </div>
+              </div>
+
+              <!-- Unsaved Changes Indicator (Desktop) -->
+              @if (hasUnsavedChanges(fixture.id)) {
+              <div class="mt-3 text-center">
+                <div
+                  class="inline-flex items-center space-x-2 text-orange-400 text-sm"
+                >
+                  <svg
+                    class="animate-pulse w-4 h-4"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z"
+                      clip-rule="evenodd"
+                    />
+                  </svg>
+                  <span>Auto-saving...</span>
+                </div>
+              </div>
+              }
+            </div>
+          </div>
+          }
+        </div>
+      </div>
+      }
+    </div>
+
+    <!-- Summary Card -->
+    <div
+      class="mt-8 backdrop-blur-lg bg-gradient-to-r from-blue-500/20 to-purple-500/20 border border-blue-500/30 rounded-2xl p-6"
+    >
+      <div class="text-center">
+        <h3 class="text-xl font-bold text-white mb-4">Prediction Summary</h3>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+          <div>
+            <div class="text-2xl font-bold text-blue-400">
+              {{ predictionStats().total }}
+            </div>
+            <div class="text-white/60 text-sm">Total Fixtures</div>
+          </div>
+          <div>
+            <div class="text-2xl font-bold text-green-400">
+              {{ predictionStats().completed }}
+            </div>
+            <div class="text-white/60 text-sm">Predicted</div>
+          </div>
+          <div>
+            <div class="text-2xl font-bold text-orange-400">
+              {{ predictionStats().remaining }}
+            </div>
+            <div class="text-white/60 text-sm">Remaining</div>
+          </div>
+          <div>
+            <div class="text-2xl font-bold text-purple-400">
+              {{ predictionStats().locked }}
+            </div>
+            <div class="text-white/60 text-sm">Locked</div>
+          </div>
+        </div>
+
+        @if (predictionStats().remaining > 0) {
+        <div class="mt-6">
+          <div
+            class="bg-orange-500/20 border border-orange-500/30 rounded-lg p-4"
+          >
+            <div class="text-orange-300 font-medium mb-2">
+              ⚠️ {{ predictionStats().remaining }} predictions remaining
+            </div>
+            <div class="text-orange-200 text-sm">
+              Complete all predictions to maximize your points this gameweek!
+            </div>
+          </div>
+        </div>
+        } @else if (predictionStats().completed === predictionStats().total) {
+        <div class="mt-6">
+          <div
+            class="bg-green-500/20 border border-green-500/30 rounded-lg p-4"
+          >
+            <div class="text-green-300 font-medium mb-2">
+              🎉 All predictions completed!
+            </div>
+            <div class="text-green-200 text-sm">
+              Good luck with your predictions this gameweek!
+            </div>
+          </div>
+        </div>
+        }
+      </div>
+    </div>
+    }
+  </div>
+</div>
