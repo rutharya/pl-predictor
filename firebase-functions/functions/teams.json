@@ -1,0 +1,182 @@
+[
+  {
+    "id": 1,
+    "name": "Arsenal FC",
+    "shortName": "ARS",
+    "code": "Arsenal",
+    "stadium": "Emirates Stadium",
+    "city": "London",
+    "crestUrl": "https://upload.wikimedia.org/wikipedia/en/5/53/Arsenal_FC.svg"
+  },
+  {
+    "id": 2,
+    "name": "Aston Villa FC",
+    "shortName": "AVL",
+    "code": "Aston Villa",
+    "stadium": "Villa Park",
+    "city": "Birmingham",
+    "crestUrl": "https://upload.wikimedia.org/wikipedia/en/f/f9/Aston_Villa_FC_crest.svg"
+  },
+  {
+    "id": 3,
+    "name": "AFC Bournemouth",
+    "shortName": "BOU",
+    "code": "Bournemouth",
+    "stadium": "Vitality Stadium",
+    "city": "Bournemouth",
+    "crestUrl": "https://upload.wikimedia.org/wikipedia/en/e/e5/AFC_Bournemouth.svg"
+  },
+  {
+    "id": 4,
+    "name": "Brentford FC",
+    "shortName": "BRE",
+    "code": "Brentford",
+    "stadium": "Gtech Community Stadium",
+    "city": "London",
+    "crestUrl": "https://upload.wikimedia.org/wikipedia/en/2/2a/Brentford_FC_crest.svg"
+  },
+  {
+    "id": 5,
+    "name": "Brighton & Hove Albion FC",
+    "shortName": "BHA",
+    "code": "Brighton",
+    "stadium": "Amex Stadium",
+    "city": "Brighton",
+    "crestUrl": "https://upload.wikimedia.org/wikipedia/en/f/fd/Brighton_%26_Hove_ Albion_logo.svg"
+  },
+  {
+    "id": 6,
+    "name": "Burnley FC",
+    "shortName": "BUR",
+    "code": "Burnley",
+    "stadium": "Turf Moor",
+    "city": "Burnley",
+    "crestUrl": "https://upload.wikimedia.org/wikipedia/en/0/02/Burnley_F.C._logo.svg"
+  },
+  {
+    "id": 7,
+    "name": "Chelsea FC",
+    "shortName": "CHE",
+    "code": "Chelsea",
+    "stadium": "Stamford Bridge",
+    "city": "London",
+    "crestUrl": "https://upload.wikimedia.org/wikipedia/en/c/cc/Chelsea_FC.svg"
+  },
+  {
+    "id": 8,
+    "name": "Crystal Palace FC",
+    "shortName": "CRY",
+    "code": "Crystal Palace",
+    "stadium": "Selhurst Park",
+    "city": "London",
+    "crestUrl": "https://upload.wikimedia.org/wikipedia/en/a/a2/Crystal_Palace_FC_logo.svg"
+  },
+  {
+    "id": 9,
+    "name": "Everton FC",
+    "shortName": "EVE",
+    "code": "Everton",
+    "stadium": "Goodison Park",
+    "city": "Liverpool",
+    "crestUrl": "https://upload.wikimedia.org/wikipedia/en/7/7c/Everton_FC_logo.svg"
+  },
+  {
+    "id": 10,
+    "name": "Fulham FC",
+    "shortName": "FUL",
+    "code": "Fulham",
+    "stadium": "Craven Cottage",
+    "city": "London",
+    "crestUrl": "https://upload.wikimedia.org/wikipedia/en/e/eb/Fulham_FC_%28shield%29.svg"
+  },
+  {
+    "id": 11,
+    "name": "Leeds United FC",
+    "shortName": "LEE",
+    "code": "Leeds United",
+    "stadium": "Elland Road",
+    "city": "Leeds",
+    "crestUrl": "https://upload.wikimedia.org/wikipedia/en/5/54/Leeds_United_F.C._logo.svg"
+  },
+  {
+    "id": 12,
+    "name": "Liverpool FC",
+    "shortName": "LIV",
+    "code": "Liverpool",
+    "stadium": "Anfield",
+    "city": "Liverpool",
+    "crestUrl": "https://upload.wikimedia.org/wikipedia/en/0/0c/Liverpool_FC.svg"
+  },
+  {
+    "id": 13,
+    "name": "Manchester City FC",
+    "shortName": "MCI",
+    "code": "Man City",
+    "stadium": "Etihad Stadium",
+    "city": "Manchester",
+    "crestUrl": "https://upload.wikimedia.org/wikipedia/en/e/eb/Manchester_City_FC_badge.svg"
+  },
+  {
+    "id": 14,
+    "name": "Manchester United FC",
+    "shortName": "MUN",
+    "code": "Man United",
+    "stadium": "Old Trafford",
+    "city": "Manchester",
+    "crestUrl": "https://upload.wikimedia.org/wikipedia/en/7/7a/Manchester_United_FC_crest.svg"
+  },
+  {
+    "id": 15,
+    "name": "Newcastle United FC",
+    "shortName": "NEW",
+    "code": "Newcastle",
+    "stadium": "St. James' Park",
+    "city": "Newcastle upon Tyne",
+    "crestUrl": "https://upload.wikimedia.org/wikipedia/en/5/56/Newcastle_United_Logo.svg"
+  },
+  {
+    "id": 16,
+    "name": "Nottingham Forest FC",
+    "shortName": "NFO",
+    "code": "Nottm Forest",
+    "stadium": "City Ground",
+    "city": "Nottingham",
+    "crestUrl": "https://upload.wikimedia.org/wikipedia/en/e/e5/Nottingham_Forest_F.C._logo.svg"
+  },
+  {
+    "id": 17,
+    "name": "Sunderland AFC",
+    "shortName": "SUN",
+    "code": "Sunderland",
+    "stadium": "Stadium of Light",
+    "city": "Sunderland",
+    "crestUrl": "https://upload.wikimedia.org/wikipedia/en/7/77/Sunderland_AFC_logo.svg"
+  },
+  {
+    "id": 18,
+    "name": "Tottenham Hotspur FC",
+    "shortName": "TOT",
+    "code": "Tottenham",
+    "stadium": "Tottenham Hotspur Stadium",
+    "city": "London",
+    "crestUrl": "https://upload.wikimedia.org/wikipedia/en/b/b4/Tottenham_Hotspur.svg"
+  },
+  {
+    "id": 19,
+    "name": "West Ham United FC",
+    "shortName": "WHU",
+    "code": "West Ham",
+    "stadium": "London Stadium",
+    "city": "London",
+    "crestUrl": "https://upload.wikimedia.org/wikipedia/en/c/c2/West_Ham_United_FC_logo.svg"
+  },
+  {
+    "id": 20,
+    "name": "Wolverhampton Wanderers FC",
+    "shortName": "WOL",
+    "code": "Wolves",
+    "stadium": "Molineux Stadium",
+    "city": "Wolverhampton",
+    "crestUrl": "https://upload.wikimedia.org/wikipedia/en/f/fc/Wolverhampton_Wanderers.svg"
+  }
+]

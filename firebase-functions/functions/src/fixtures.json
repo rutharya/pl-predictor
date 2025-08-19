@@ -1,0 +1,2474 @@
+{
+  "fixtures": [
+    {
+      "matchday": "Matchday 1 of 38",
+      "matches": [
+        {
+          "home_team": "Liverpool",
+          "away_team": "Bournemouth",
+          "date": "15/08/2025",
+          "time": "21:00"
+        },
+        {
+          "home_team": "Aston Villa",
+          "away_team": "Newcastle",
+          "date": "16/08/2025",
+          "time": "13:30"
+        },
+        {
+          "home_team": "Brighton",
+          "away_team": "Fulham",
+          "date": "16/08/2025",
+          "time": "16:00"
+        },
+        {
+          "home_team": "Sunderland",
+          "away_team": "West Ham",
+          "date": "16/08/2025",
+          "time": "16:00"
+        },
+        {
+          "home_team": "Tottenham",
+          "away_team": "Burnley",
+          "date": "16/08/2025",
+          "time": "16:00"
+        },
+        {
+          "home_team": "Wolves",
+          "away_team": "Man City",
+          "date": "16/08/2025",
+          "time": "18:30"
+        },
+        {
+          "home_team": "Chelsea",
+          "away_team": "Crystal Palace",
+          "date": "17/08/2025",
+          "time": "15:00"
+        },
+        {
+          "home_team": "Nottm Forest",
+          "away_team": "Brentford",
+          "date": "17/08/2025",
+          "time": "15:00"
+        },
+        {
+          "home_team": "Man United",
+          "away_team": "Arsenal",
+          "date": "17/08/2025",
+          "time": "17:30"
+        },
+        {
+          "home_team": "Leeds United",
+          "away_team": "Everton",
+          "date": "18/08/2025",
+          "time": "21:00"
+        }
+      ]
+    },
+    {
+      "matchday": "Matchday 2 of 38",
+      "matches": [
+        {
+          "home_team": "West Ham",
+          "away_team": "Chelsea",
+          "date": "22/08/2025",
+          "time": "21:00"
+        },
+        {
+          "home_team": "Man City",
+          "away_team": "Tottenham",
+          "date": "23/08/2025",
+          "time": "13:30"
+        },
+        {
+          "home_team": "Bournemouth",
+          "away_team": "Wolves",
+          "date": "23/08/2025",
+          "time": "16:00"
+        },
+        {
+          "home_team": "Burnley",
+          "away_team": "Sunderland",
+          "date": "23/08/2025",
+          "time": "16:00"
+        },
+        {
+          "home_team": "Brentford",
+          "away_team": "Aston Villa",
+          "date": "23/08/2025",
+          "time": "16:00"
+        },
+        {
+          "home_team": "Arsenal",
+          "away_team": "Leeds United",
+          "date": "23/08/2025",
+          "time": "18:30"
+        },
+        {
+          "home_team": "Crystal Palace",
+          "away_team": "Nottm Forest",
+          "date": "24/08/2025",
+          "time": "15:00"
+        },
+        {
+          "home_team": "Everton",
+          "away_team": "Brighton",
+          "date": "24/08/2025",
+          "time": "15:00"
+        },
+        {
+          "home_team": "Fulham",
+          "away_team": "Man United",
+          "date": "24/08/2025",
+          "time": "17:30"
+        },
+        {
+          "home_team": "Newcastle",
+          "away_team": "Liverpool",
+          "date": "25/08/2025",
+          "time": "21:00"
+        }
+      ]
+    },
+    {
+      "matchday": "Matchday 3 of 38",
+      "matches": [
+        {
+          "home_team": "Chelsea",
+          "away_team": "Fulham",
+          "date": "30/08/2025",
+          "time": "13:30"
+        },
+        {
+          "home_team": "Wolves",
+          "away_team": "Everton",
+          "date": "30/08/2025",
+          "time": "16:00"
+        },
+        {
+          "home_team": "Tottenham",
+          "away_team": "Bournemouth",
+          "date": "30/08/2025",
+          "time": "16:00"
+        },
+        {
+          "home_team": "Man United",
+          "away_team": "Burnley",
+          "date": "30/08/2025",
+          "time": "16:00"
+        },
+        {
+          "home_team": "Sunderland",
+          "away_team": "Brentford",
+          "date": "30/08/2025",
+          "time": "16:00"
+        },
+        {
+          "home_team": "Leeds United",
+          "away_team": "Newcastle",
+          "date": "30/08/2025",
+          "time": "18:30"
+        },
+        {
+          "home_team": "Brighton",
+          "away_team": "Man City",
+          "date": "31/08/2025",
+          "time": "15:00"
+        },
+        {
+          "home_team": "Nottm Forest",
+          "away_team": "West Ham",
+          "date": "31/08/2025",
+          "time": "15:00"
+        },
+        {
+          "home_team": "Liverpool",
+          "away_team": "Arsenal",
+          "date": "31/08/2025",
+          "time": "17:30"
+        },
+        {
+          "home_team": "Aston Villa",
+          "away_team": "Crystal Palace",
+          "date": "31/08/2025",
+          "time": "20:00"
+        }
+      ]
+    },
+    {
+      "matchday": "Matchday 4 of 38",
+      "matches": [
+        {
+          "home_team": "Arsenal",
+          "away_team": "Nottm Forest",
+          "date": "13/09/2025",
+          "time": "13:30"
+        },
+        {
+          "home_team": "Bournemouth",
+          "away_team": "Brighton",
+          "date": "13/09/2025",
+          "time": "16:00"
+        },
+        {
+          "home_team": "Newcastle",
+          "away_team": "Wolves",
+          "date": "13/09/2025",
+          "time": "16:00"
+        },
+        {
+          "home_team": "Everton",
+          "away_team": "Aston Villa",
+          "date": "13/09/2025",
+          "time": "16:00"
+        },
+        {
+          "home_team": "Crystal Palace",
+          "away_team": "Sunderland",
+          "date": "13/09/2025",
+          "time": "16:00"
+        },
+        {
+          "home_team": "Fulham",
+          "away_team": "Leeds United",
+          "date": "13/09/2025",
+          "time": "16:00"
+        },
+        {
+          "home_team": "West Ham",
+          "away_team": "Tottenham",
+          "date": "13/09/2025",
+          "time": "18:30"
+        },
+        {
+          "home_team": "Brentford",
+          "away_team": "Chelsea",
+          "date": "13/09/2025",
+          "time": "21:00"
+        },
+        {
+          "home_team": "Burnley",
+          "away_team": "Liverpool",
+          "date": "14/09/2025",
+          "time": "15:00"
+        },
+        {
+          "home_team": "Man City",
+          "away_team": "Man United",
+          "date": "14/09/2025",
+          "time": "17:30"
+        }
+      ]
+    },
+    {
+      "matchday": "Matchday 5 of 38",
+      "matches": [
+        {
+          "home_team": "Liverpool",
+          "away_team": "Everton",
+          "date": "20/09/2025",
+          "time": "13:30"
+        },
+        {
+          "home_team": "Burnley",
+          "away_team": "Nottm Forest",
+          "date": "20/09/2025",
+          "time": "16:00"
+        },
+        {
+          "home_team": "Brighton",
+          "away_team": "Tottenham",
+          "date": "20/09/2025",
+          "time": "16:00"
+        },
+        {
+          "home_team": "West Ham",
+          "away_team": "Crystal Palace",
+          "date": "20/09/2025",
+          "time": "16:00"
+        },
+        {
+          "home_team": "Wolves",
+          "away_team": "Leeds United",
+          "date": "20/09/2025",
+          "time": "16:00"
+        },
+        {
+          "home_team": "Bournemouth",
+          "away_team": "Newcastle",
+          "date": "20/09/2025",
+          "time": "16:00"
+        },
+        {
+          "home_team": "Man United",
+          "away_team": "Chelsea",
+          "date": "20/09/2025",
+          "time": "18:30"
+        },
+        {
+          "home_team": "Fulham",
+          "away_team": "Brentford",
+          "date": "20/09/2025",
+          "time": "21:00"
+        },
+        {
+          "home_team": "Sunderland",
+          "away_team": "Aston Villa",
+          "date": "21/09/2025",
+          "time": "15:00"
+        },
+        {
+          "home_team": "Arsenal",
+          "away_team": "Man City",
+          "date": "21/09/2025",
+          "time": "17:30"
+        }
+      ]
+    },
+    {
+      "matchday": "Matchday 6 of 38",
+      "matches": [
+        {
+          "home_team": "Brentford",
+          "away_team": "Man United",
+          "date": "27/09/2025",
+          "time": "13:30"
+        },
+        {
+          "home_team": "Leeds United",
+          "away_team": "Bournemouth",
+          "date": "27/09/2025",
+          "time": "16:00"
+        },
+        {
+          "home_team": "Chelsea",
+          "away_team": "Brighton",
+          "date": "27/09/2025",
+          "time": "16:00"
+        },
+        {
+          "home_team": "Man City",
+          "away_team": "Burnley",
+          "date": "27/09/2025",
+          "time": "16:00"
+        },
+        {
+          "home_team": "Aston Villa",
+          "away_team": "Fulham",
+          "date": "27/09/2025",
+          "time": "16:00"
+        },
+        {
+          "home_team": "Crystal Palace",
+          "away_team": "Liverpool",
+          "date": "27/09/2025",
+          "time": "16:00"
+        },
+        {
+          "home_team": "Nottm Forest",
+          "away_team": "Sunderland",
+          "date": "27/09/2025",
+          "time": "18:30"
+        },
+        {
+          "home_team": "Tottenham",
+          "away_team": "Wolves",
+          "date": "28/09/2025",
+          "time": "15:00"
+        },
+        {
+          "home_team": "Newcastle",
+          "away_team": "Arsenal",
+          "date": "28/09/2025",
+          "time": "17:30"
+        },
+        {
+          "home_team": "Everton",
+          "away_team": "West Ham",
+          "date": "29/09/2025",
+          "time": "21:00"
+        }
+      ]
+    },
+    {
+      "matchday": "Matchday 7 of 38",
+      "matches": [
+        {
+          "home_team": "Man United",
+          "away_team": "Sunderland",
+          "date": "04/10/2025",
+          "time": "16:00"
+        },
+        {
+          "home_team": "Leeds United",
+          "away_team": "Tottenham",
+          "date": "04/10/2025",
+          "time": "16:00"
+        },
+        {
+          "home_team": "Chelsea",
+          "away_team": "Liverpool",
+          "date": "04/10/2025",
+          "time": "16:00"
+        },
+        {
+          "home_team": "Everton",
+          "away_team": "Crystal Palace",
+          "date": "04/10/2025",
+          "time": "16:00"
+        },
+        {
+          "home_team": "Newcastle",
+          "away_team": "Nottm Forest",
+          "date": "04/10/2025",
+          "time": "16:00"
+        },
+        {
+          "home_team": "Bournemouth",
+          "away_team": "Fulham",
+          "date": "04/10/2025",
+          "time": "16:00"
+        },
+        {
+          "home_team": "Brentford",
+          "away_team": "Man City",
+          "date": "04/10/2025",
+          "time": "16:00"
+        },
+        {
+          "home_team": "Arsenal",
+          "away_team": "West Ham",
+          "date": "04/10/2025",
+          "time": "16:00"
+        },
+        {
+          "home_team": "Wolves",
+          "away_team": "Brighton",
+          "date": "04/10/2025",
+          "time": "16:00"
+        },
+        {
+          "home_team": "Aston Villa",
+          "away_team": "Burnley",
+          "date": "04/10/2025",
+          "time": "16:00"
+        }
+      ]
+    },
+    {
+      "matchday": "Matchday 8 of 38",
+      "matches": [
+        {
+          "home_team": "Nottm Forest",
+          "away_team": "Chelsea",
+          "date": "18/10/2025",
+          "time": "16:00"
+        },
+        {
+          "home_team": "West Ham",
+          "away_team": "Brentford",
+          "date": "18/10/2025",
+          "time": "16:00"
+        },
+        {
+          "home_team": "Tottenham",
+          "away_team": "Aston Villa",
+          "date": "18/10/2025",
+          "time": "16:00"
+        },
+        {
+          "home_team": "Liverpool",
+          "away_team": "Man United",
+          "date": "18/10/2025",
+          "time": "16:00"
+        },
+        {
+          "home_team": "Fulham",
+          "away_team": "Arsenal",
+          "date": "18/10/2025",
+          "time": "16:00"
+        },
+        {
+          "home_team": "Sunderland",
+          "away_team": "Wolves",
+          "date": "18/10/2025",
+          "time": "16:00"
+        },
+        {
+          "home_team": "Burnley",
+          "away_team": "Leeds United",
+          "date": "18/10/2025",
+          "time": "16:00"
+        },
+        {
+          "home_team": "Crystal Palace",
+          "away_team": "Bournemouth",
+          "date": "18/10/2025",
+          "time": "16:00"
+        },
+        {
+          "home_team": "Brighton",
+          "away_team": "Newcastle",
+          "date": "18/10/2025",
+          "time": "16:00"
+        },
+        {
+          "home_team": "Man City",
+          "away_team": "Everton",
+          "date": "18/10/2025",
+          "time": "16:00"
+        }
+      ]
+    },
+    {
+      "matchday": "Matchday 9 of 38",
+      "matches": [
+        {
+          "home_team": "Everton",
+          "away_team": "Tottenham",
+          "date": "25/10/2025",
+          "time": "16:00"
+        },
+        {
+          "home_team": "Chelsea",
+          "away_team": "Sunderland",
+          "date": "25/10/2025",
+          "time": "16:00"
+        },
+        {
+          "home_team": "Wolves",
+          "away_team": "Burnley",
+          "date": "25/10/2025",
+          "time": "16:00"
+        },
+        {
+          "home_team": "Brentford",
+          "away_team": "Liverpool",
+          "date": "25/10/2025",
+          "time": "16:00"
+        },
+        {
+          "home_team": "Newcastle",
+          "away_team": "Fulham",
+          "date": "25/10/2025",
+          "time": "16:00"
+        },
+        {
+          "home_team": "Man United",
+          "away_team": "Brighton",
+          "date": "25/10/2025",
+          "time": "16:00"
+        },
+        {
+          "home_team": "Arsenal",
+          "away_team": "Crystal Palace",
+          "date": "25/10/2025",
+          "time": "16:00"
+        },
+        {
+          "home_team": "Aston Villa",
+          "away_team": "Man City",
+          "date": "25/10/2025",
+          "time": "16:00"
+        },
+        {
+          "home_team": "Leeds United",
+          "away_team": "West Ham",
+          "date": "25/10/2025",
+          "time": "16:00"
+        },
+        {
+          "home_team": "Bournemouth",
+          "away_team": "Nottm Forest",
+          "date": "25/10/2025",
+          "time": "16:00"
+        }
+      ]
+    },
+    {
+      "matchday": "Matchday 10 of 38",
+      "matches": [
+        {
+          "home_team": "Crystal Palace",
+          "away_team": "Brentford",
+          "date": "01/11/2025",
+          "time": "16:00"
+        },
+        {
+          "home_team": "West Ham",
+          "away_team": "Newcastle",
+          "date": "01/11/2025",
+          "time": "16:00"
+        },
+        {
+          "home_team": "Liverpool",
+          "away_team": "Aston Villa",
+          "date": "01/11/2025",
+          "time": "16:00"
+        },
+        {
+          "home_team": "Tottenham",
+          "away_team": "Chelsea",
+          "date": "01/11/2025",
+          "time": "16:00"
+        },
+        {
+          "home_team": "Nottm Forest",
+          "away_team": "Man United",
+          "date": "01/11/2025",
+          "time": "16:00"
+        },
+        {
+          "home_team": "Burnley",
+          "away_team": "Arsenal",
+          "date": "01/11/2025",
+          "time": "16:00"
+        },
+        {
+          "home_team": "Brighton",
+          "away_team": "Leeds United",
+          "date": "01/11/2025",
+          "time": "16:00"
+        },
+        {
+          "home_team": "Man City",
+          "away_team": "Bournemouth",
+          "date": "01/11/2025",
+          "time": "16:00"
+        },
+        {
+          "home_team": "Fulham",
+          "away_team": "Wolves",
+          "date": "01/11/2025",
+          "time": "16:00"
+        },
+        {
+          "home_team": "Sunderland",
+          "away_team": "Everton",
+          "date": "01/11/2025",
+          "time": "16:00"
+        }
+      ]
+    },
+    {
+      "matchday": "Matchday 11 of 38",
+      "matches": [
+        {
+          "home_team": "Crystal Palace",
+          "away_team": "Brighton",
+          "date": "08/11/2025",
+          "time": "16:00"
+        },
+        {
+          "home_team": "Tottenham",
+          "away_team": "Man United",
+          "date": "08/11/2025",
+          "time": "16:00"
+        },
+        {
+          "home_team": "Everton",
+          "away_team": "Fulham",
+          "date": "08/11/2025",
+          "time": "16:00"
+        },
+        {
+          "home_team": "Aston Villa",
+          "away_team": "Bournemouth",
+          "date": "08/11/2025",
+          "time": "16:00"
+        },
+        {
+          "home_team": "Sunderland",
+          "away_team": "Arsenal",
+          "date": "08/11/2025",
+          "time": "16:00"
+        },
+        {
+          "home_team": "Chelsea",
+          "away_team": "Wolves",
+          "date": "08/11/2025",
+          "time": "16:00"
+        },
+        {
+          "home_team": "Man City",
+          "away_team": "Liverpool",
+          "date": "08/11/2025",
+          "time": "16:00"
+        },
+        {
+          "home_team": "Brentford",
+          "away_team": "Newcastle",
+          "date": "08/11/2025",
+          "time": "16:00"
+        },
+        {
+          "home_team": "West Ham",
+          "away_team": "Burnley",
+          "date": "08/11/2025",
+          "time": "16:00"
+        },
+        {
+          "home_team": "Nottm Forest",
+          "away_team": "Leeds United",
+          "date": "08/11/2025",
+          "time": "16:00"
+        }
+      ]
+    },
+    {
+      "matchday": "Matchday 12 of 38",
+      "matches": [
+        {
+          "home_team": "Liverpool",
+          "away_team": "Nottm Forest",
+          "date": "22/11/2025",
+          "time": "16:00"
+        },
+        {
+          "home_team": "Newcastle",
+          "away_team": "Man City",
+          "date": "22/11/2025",
+          "time": "16:00"
+        },
+        {
+          "home_team": "Leeds United",
+          "away_team": "Aston Villa",
+          "date": "22/11/2025",
+          "time": "16:00"
+        },
+        {
+          "home_team": "Bournemouth",
+          "away_team": "West Ham",
+          "date": "22/11/2025",
+          "time": "16:00"
+        },
+        {
+          "home_team": "Wolves",
+          "away_team": "Crystal Palace",
+          "date": "22/11/2025",
+          "time": "16:00"
+        },
+        {
+          "home_team": "Burnley",
+          "away_team": "Chelsea",
+          "date": "22/11/2025",
+          "time": "16:00"
+        },
+        {
+          "home_team": "Brighton",
+          "away_team": "Brentford",
+          "date": "22/11/2025",
+          "time": "16:00"
+        },
+        {
+          "home_team": "Arsenal",
+          "away_team": "Tottenham",
+          "date": "22/11/2025",
+          "time": "16:00"
+        },
+        {
+          "home_team": "Man United",
+          "away_team": "Everton",
+          "date": "22/11/2025",
+          "time": "16:00"
+        },
+        {
+          "home_team": "Fulham",
+          "away_team": "Sunderland",
+          "date": "22/11/2025",
+          "time": "16:00"
+        }
+      ]
+    },
+    {
+      "matchday": "Matchday 13 of 38",
+      "matches": [
+        {
+          "home_team": "Chelsea",
+          "away_team": "Arsenal",
+          "date": "29/11/2025",
+          "time": "16:00"
+        },
+        {
+          "home_team": "West Ham",
+          "away_team": "Liverpool",
+          "date": "29/11/2025",
+          "time": "16:00"
+        },
+        {
+          "home_team": "Brentford",
+          "away_team": "Burnley",
+          "date": "29/11/2025",
+          "time": "16:00"
+        },
+        {
+          "home_team": "Everton",
+          "away_team": "Newcastle",
+          "date": "29/11/2025",
+          "time": "16:00"
+        },
+        {
+          "home_team": "Tottenham",
+          "away_team": "Fulham",
+          "date": "29/11/2025",
+          "time": "16:00"
+        },
+        {
+          "home_team": "Crystal Palace",
+          "away_team": "Man United",
+          "date": "29/11/2025",
+          "time": "16:00"
+        },
+        {
+          "home_team": "Sunderland",
+          "away_team": "Bournemouth",
+          "date": "29/11/2025",
+          "time": "16:00"
+        },
+        {
+          "home_team": "Man City",
+          "away_team": "Leeds United",
+          "date": "29/11/2025",
+          "time": "16:00"
+        },
+        {
+          "home_team": "Aston Villa",
+          "away_team": "Wolves",
+          "date": "29/11/2025",
+          "time": "16:00"
+        },
+        {
+          "home_team": "Nottm Forest",
+          "away_team": "Brighton",
+          "date": "29/11/2025",
+          "time": "16:00"
+        }
+      ]
+    },
+    {
+      "matchday": "Matchday 14 of 38",
+      "matches": [
+        {
+          "home_team": "Brighton",
+          "away_team": "Aston Villa",
+          "date": "03/12/2025",
+          "time": "21:00"
+        },
+        {
+          "home_team": "Leeds United",
+          "away_team": "Chelsea",
+          "date": "03/12/2025",
+          "time": "21:00"
+        },
+        {
+          "home_team": "Burnley",
+          "away_team": "Crystal Palace",
+          "date": "03/12/2025",
+          "time": "21:00"
+        },
+        {
+          "home_team": "Man United",
+          "away_team": "West Ham",
+          "date": "03/12/2025",
+          "time": "21:00"
+        },
+        {
+          "home_team": "Fulham",
+          "away_team": "Man City",
+          "date": "03/12/2025",
+          "time": "21:00"
+        },
+        {
+          "home_team": "Wolves",
+          "away_team": "Nottm Forest",
+          "date": "03/12/2025",
+          "time": "21:00"
+        },
+        {
+          "home_team": "Arsenal",
+          "away_team": "Brentford",
+          "date": "03/12/2025",
+          "time": "21:00"
+        },
+        {
+          "home_team": "Liverpool",
+          "away_team": "Sunderland",
+          "date": "03/12/2025",
+          "time": "21:00"
+        },
+        {
+          "home_team": "Newcastle",
+          "away_team": "Tottenham",
+          "date": "03/12/2025",
+          "time": "21:00"
+        },
+        {
+          "home_team": "Bournemouth",
+          "away_team": "Everton",
+          "date": "03/12/2025",
+          "time": "21:00"
+        }
+      ]
+    },
+    {
+      "matchday": "Matchday 15 of 38",
+      "matches": [
+        {
+          "home_team": "Aston Villa",
+          "away_team": "Arsenal",
+          "date": "06/12/2025",
+          "time": "16:00"
+        },
+        {
+          "home_team": "Brighton",
+          "away_team": "West Ham",
+          "date": "06/12/2025",
+          "time": "16:00"
+        },
+        {
+          "home_team": "Everton",
+          "away_team": "Nottm Forest",
+          "date": "06/12/2025",
+          "time": "16:00"
+        },
+        {
+          "home_team": "Wolves",
+          "away_team": "Man United",
+          "date": "06/12/2025",
+          "time": "16:00"
+        },
+        {
+          "home_team": "Fulham",
+          "away_team": "Crystal Palace",
+          "date": "06/12/2025",
+          "time": "16:00"
+        },
+        {
+          "home_team": "Newcastle",
+          "away_team": "Burnley",
+          "date": "06/12/2025",
+          "time": "16:00"
+        },
+        {
+          "home_team": "Man City",
+          "away_team": "Sunderland",
+          "date": "06/12/2025",
+          "time": "16:00"
+        },
+        {
+          "home_team": "Tottenham",
+          "away_team": "Brentford",
+          "date": "06/12/2025",
+          "time": "16:00"
+        },
+        {
+          "home_team": "Leeds United",
+          "away_team": "Liverpool",
+          "date": "06/12/2025",
+          "time": "16:00"
+        },
+        {
+          "home_team": "Bournemouth",
+          "away_team": "Chelsea",
+          "date": "06/12/2025",
+          "time": "16:00"
+        }
+      ]
+    },
+    {
+      "matchday": "Matchday 16 of 38",
+      "matches": [
+        {
+          "home_team": "Crystal Palace",
+          "away_team": "Man City",
+          "date": "13/12/2025",
+          "time": "16:00"
+        },
+        {
+          "home_team": "Man United",
+          "away_team": "Bournemouth",
+          "date": "13/12/2025",
+          "time": "16:00"
+        },
+        {
+          "home_team": "Chelsea",
+          "away_team": "Everton",
+          "date": "13/12/2025",
+          "time": "16:00"
+        },
+        {
+          "home_team": "Sunderland",
+          "away_team": "Newcastle",
+          "date": "13/12/2025",
+          "time": "16:00"
+        },
+        {
+          "home_team": "Brentford",
+          "away_team": "Leeds United",
+          "date": "13/12/2025",
+          "time": "16:00"
+        },
+        {
+          "home_team": "Arsenal",
+          "away_team": "Wolves",
+          "date": "13/12/2025",
+          "time": "16:00"
+        },
+        {
+          "home_team": "Liverpool",
+          "away_team": "Brighton",
+          "date": "13/12/2025",
+          "time": "16:00"
+        },
+        {
+          "home_team": "Nottm Forest",
+          "away_team": "Tottenham",
+          "date": "13/12/2025",
+          "time": "16:00"
+        },
+        {
+          "home_team": "West Ham",
+          "away_team": "Aston Villa",
+          "date": "13/12/2025",
+          "time": "16:00"
+        },
+        {
+          "home_team": "Burnley",
+          "away_team": "Fulham",
+          "date": "13/12/2025",
+          "time": "16:00"
+        }
+      ]
+    },
+    {
+      "matchday": "Matchday 17 of 38",
+      "matches": [
+        {
+          "home_team": "Wolves",
+          "away_team": "Brentford",
+          "date": "20/12/2025",
+          "time": "16:00"
+        },
+        {
+          "home_team": "Man City",
+          "away_team": "West Ham",
+          "date": "20/12/2025",
+          "time": "16:00"
+        },
+        {
+          "home_team": "Tottenham",
+          "away_team": "Liverpool",
+          "date": "20/12/2025",
+          "time": "16:00"
+        },
+        {
+          "home_team": "Brighton",
+          "away_team": "Sunderland",
+          "date": "20/12/2025",
+          "time": "16:00"
+        },
+        {
+          "home_team": "Fulham",
+          "away_team": "Nottm Forest",
+          "date": "20/12/2025",
+          "time": "16:00"
+        },
+        {
+          "home_team": "Leeds United",
+          "away_team": "Crystal Palace",
+          "date": "20/12/2025",
+          "time": "16:00"
+        },
+        {
+          "home_team": "Aston Villa",
+          "away_team": "Man United",
+          "date": "20/12/2025",
+          "time": "16:00"
+        },
+        {
+          "home_team": "Everton",
+          "away_team": "Arsenal",
+          "date": "20/12/2025",
+          "time": "16:00"
+        },
+        {
+          "home_team": "Newcastle",
+          "away_team": "Chelsea",
+          "date": "20/12/2025",
+          "time": "16:00"
+        },
+        {
+          "home_team": "Bournemouth",
+          "away_team": "Burnley",
+          "date": "20/12/2025",
+          "time": "16:00"
+        }
+      ]
+    },
+    {
+      "matchday": "Matchday 18 of 38",
+      "matches": [
+        {
+          "home_team": "West Ham",
+          "away_team": "Fulham",
+          "date": "27/12/2025",
+          "time": "16:00"
+        },
+        {
+          "home_team": "Crystal Palace",
+          "away_team": "Tottenham",
+          "date": "27/12/2025",
+          "time": "16:00"
+        },
+        {
+          "home_team": "Man United",
+          "away_team": "Newcastle",
+          "date": "27/12/2025",
+          "time": "16:00"
+        },
+        {
+          "home_team": "Nottm Forest",
+          "away_team": "Man City",
+          "date": "27/12/2025",
+          "time": "16:00"
+        },
+        {
+          "home_team": "Sunderland",
+          "away_team": "Leeds United",
+          "date": "27/12/2025",
+          "time": "16:00"
+        },
+        {
+          "home_team": "Brentford",
+          "away_team": "Bournemouth",
+          "date": "27/12/2025",
+          "time": "16:00"
+        },
+        {
+          "home_team": "Chelsea",
+          "away_team": "Aston Villa",
+          "date": "27/12/2025",
+          "time": "16:00"
+        },
+        {
+          "home_team": "Liverpool",
+          "away_team": "Wolves",
+          "date": "27/12/2025",
+          "time": "16:00"
+        },
+        {
+          "home_team": "Arsenal",
+          "away_team": "Brighton",
+          "date": "27/12/2025",
+          "time": "16:00"
+        },
+        {
+          "home_team": "Burnley",
+          "away_team": "Everton",
+          "date": "27/12/2025",
+          "time": "16:00"
+        }
+      ]
+    },
+    {
+      "matchday": "Matchday 19 of 38",
+      "matches": [
+        {
+          "home_team": "Arsenal",
+          "away_team": "Aston Villa",
+          "date": "30/12/2025",
+          "time": "21:00"
+        },
+        {
+          "home_team": "Man United",
+          "away_team": "Wolves",
+          "date": "30/12/2025",
+          "time": "21:00"
+        },
+        {
+          "home_team": "Liverpool",
+          "away_team": "Leeds United",
+          "date": "30/12/2025",
+          "time": "21:00"
+        },
+        {
+          "home_team": "Burnley",
+          "away_team": "Newcastle",
+          "date": "30/12/2025",
+          "time": "21:00"
+        },
+        {
+          "home_team": "Sunderland",
+          "away_team": "Man City",
+          "date": "30/12/2025",
+          "time": "21:00"
+        },
+        {
+          "home_team": "Chelsea",
+          "away_team": "Bournemouth",
+          "date": "30/12/2025",
+          "time": "21:00"
+        },
+        {
+          "home_team": "Nottm Forest",
+          "away_team": "Everton",
+          "date": "30/12/2025",
+          "time": "21:00"
+        },
+        {
+          "home_team": "Brentford",
+          "away_team": "Tottenham",
+          "date": "30/12/2025",
+          "time": "21:00"
+        },
+        {
+          "home_team": "Crystal Palace",
+          "away_team": "Fulham",
+          "date": "30/12/2025",
+          "time": "21:00"
+        },
+        {
+          "home_team": "West Ham",
+          "away_team": "Brighton",
+          "date": "30/12/2025",
+          "time": "21:00"
+        }
+      ]
+    },
+    {
+      "matchday": "Matchday 20 of 38",
+      "matches": [
+        {
+          "home_team": "Man City",
+          "away_team": "Chelsea",
+          "date": "03/01/2026",
+          "time": "16:00"
+        },
+        {
+          "home_team": "Tottenham",
+          "away_team": "Sunderland",
+          "date": "03/01/2026",
+          "time": "16:00"
+        },
+        {
+          "home_team": "Everton",
+          "away_team": "Brentford",
+          "date": "03/01/2026",
+          "time": "16:00"
+        },
+        {
+          "home_team": "Aston Villa",
+          "away_team": "Nottm Forest",
+          "date": "03/01/2026",
+          "time": "16:00"
+        },
+        {
+          "home_team": "Brighton",
+          "away_team": "Burnley",
+          "date": "03/01/2026",
+          "time": "16:00"
+        },
+        {
+          "home_team": "Bournemouth",
+          "away_team": "Arsenal",
+          "date": "03/01/2026",
+          "time": "16:00"
+        },
+        {
+          "home_team": "Leeds United",
+          "away_team": "Man United",
+          "date": "03/01/2026",
+          "time": "16:00"
+        },
+        {
+          "home_team": "Newcastle",
+          "away_team": "Crystal Palace",
+          "date": "03/01/2026",
+          "time": "16:00"
+        },
+        {
+          "home_team": "Wolves",
+          "away_team": "West Ham",
+          "date": "03/01/2026",
+          "time": "16:00"
+        },
+        {
+          "home_team": "Fulham",
+          "away_team": "Liverpool",
+          "date": "03/01/2026",
+          "time": "16:00"
+        }
+      ]
+    },
+    {
+      "matchday": "Matchday 21 of 38",
+      "matches": [
+        {
+          "home_team": "Burnley",
+          "away_team": "Man United",
+          "date": "07/01/2026",
+          "time": "21:00"
+        },
+        {
+          "home_team": "Crystal Palace",
+          "away_team": "Aston Villa",
+          "date": "07/01/2026",
+          "time": "21:00"
+        },
+        {
+          "home_team": "Fulham",
+          "away_team": "Chelsea",
+          "date": "07/01/2026",
+          "time": "21:00"
+        },
+        {
+          "home_team": "Arsenal",
+          "away_team": "Liverpool",
+          "date": "07/01/2026",
+          "time": "21:00"
+        },
+        {
+          "home_team": "Brentford",
+          "away_team": "Sunderland",
+          "date": "07/01/2026",
+          "time": "21:00"
+        },
+        {
+          "home_team": "Bournemouth",
+          "away_team": "Tottenham",
+          "date": "07/01/2026",
+          "time": "21:00"
+        },
+        {
+          "home_team": "Man City",
+          "away_team": "Brighton",
+          "date": "07/01/2026",
+          "time": "21:00"
+        },
+        {
+          "home_team": "West Ham",
+          "away_team": "Nottm Forest",
+          "date": "07/01/2026",
+          "time": "21:00"
+        },
+        {
+          "home_team": "Newcastle",
+          "away_team": "Leeds United",
+          "date": "07/01/2026",
+          "time": "21:00"
+        },
+        {
+          "home_team": "Everton",
+          "away_team": "Wolves",
+          "date": "07/01/2026",
+          "time": "21:00"
+        }
+      ]
+    },
+    {
+      "matchday": "Matchday 22 of 38",
+      "matches": [
+        {
+          "home_team": "Sunderland",
+          "away_team": "Crystal Palace",
+          "date": "17/01/2026",
+          "time": "16:00"
+        },
+        {
+          "home_team": "Wolves",
+          "away_team": "Newcastle",
+          "date": "17/01/2026",
+          "time": "16:00"
+        },
+        {
+          "home_team": "Aston Villa",
+          "away_team": "Everton",
+          "date": "17/01/2026",
+          "time": "16:00"
+        },
+        {
+          "home_team": "Chelsea",
+          "away_team": "Brentford",
+          "date": "17/01/2026",
+          "time": "16:00"
+        },
+        {
+          "home_team": "Man United",
+          "away_team": "Man City",
+          "date": "17/01/2026",
+          "time": "16:00"
+        },
+        {
+          "home_team": "Brighton",
+          "away_team": "Bournemouth",
+          "date": "17/01/2026",
+          "time": "16:00"
+        },
+        {
+          "home_team": "Liverpool",
+          "away_team": "Burnley",
+          "date": "17/01/2026",
+          "time": "16:00"
+        },
+        {
+          "home_team": "Tottenham",
+          "away_team": "West Ham",
+          "date": "17/01/2026",
+          "time": "16:00"
+        },
+        {
+          "home_team": "Leeds United",
+          "away_team": "Fulham",
+          "date": "17/01/2026",
+          "time": "16:00"
+        },
+        {
+          "home_team": "Nottm Forest",
+          "away_team": "Arsenal",
+          "date": "17/01/2026",
+          "time": "16:00"
+        }
+      ]
+    },
+    {
+      "matchday": "Matchday 23 of 38",
+      "matches": [
+        {
+          "home_team": "Bournemouth",
+          "away_team": "Liverpool",
+          "date": "24/01/2026",
+          "time": "16:00"
+        },
+        {
+          "home_team": "Crystal Palace",
+          "away_team": "Chelsea",
+          "date": "24/01/2026",
+          "time": "16:00"
+        },
+        {
+          "home_team": "Fulham",
+          "away_team": "Brighton",
+          "date": "24/01/2026",
+          "time": "16:00"
+        },
+        {
+          "home_team": "Arsenal",
+          "away_team": "Man United",
+          "date": "24/01/2026",
+          "time": "16:00"
+        },
+        {
+          "home_team": "Everton",
+          "away_team": "Leeds United",
+          "date": "24/01/2026",
+          "time": "16:00"
+        },
+        {
+          "home_team": "Brentford",
+          "away_team": "Nottm Forest",
+          "date": "24/01/2026",
+          "time": "16:00"
+        },
+        {
+          "home_team": "Burnley",
+          "away_team": "Tottenham",
+          "date": "24/01/2026",
+          "time": "16:00"
+        },
+        {
+          "home_team": "West Ham",
+          "away_team": "Sunderland",
+          "date": "24/01/2026",
+          "time": "16:00"
+        },
+        {
+          "home_team": "Man City",
+          "away_team": "Wolves",
+          "date": "24/01/2026",
+          "time": "16:00"
+        },
+        {
+          "home_team": "Newcastle",
+          "away_team": "Aston Villa",
+          "date": "24/01/2026",
+          "time": "16:00"
+        }
+      ]
+    },
+    {
+      "matchday": "Matchday 24 of 38",
+      "matches": [
+        {
+          "home_team": "Leeds United",
+          "away_team": "Arsenal",
+          "date": "31/01/2026",
+          "time": "16:00"
+        },
+        {
+          "home_team": "Liverpool",
+          "away_team": "Newcastle",
+          "date": "31/01/2026",
+          "time": "16:00"
+        },
+        {
+          "home_team": "Tottenham",
+          "away_team": "Man City",
+          "date": "31/01/2026",
+          "time": "16:00"
+        },
+        {
+          "home_team": "Wolves",
+          "away_team": "Bournemouth",
+          "date": "31/01/2026",
+          "time": "16:00"
+        },
+        {
+          "home_team": "Aston Villa",
+          "away_team": "Brentford",
+          "date": "31/01/2026",
+          "time": "16:00"
+        },
+        {
+          "home_team": "Sunderland",
+          "away_team": "Burnley",
+          "date": "31/01/2026",
+          "time": "16:00"
+        },
+        {
+          "home_team": "Man United",
+          "away_team": "Fulham",
+          "date": "31/01/2026",
+          "time": "16:00"
+        },
+        {
+          "home_team": "Brighton",
+          "away_team": "Everton",
+          "date": "31/01/2026",
+          "time": "16:00"
+        },
+        {
+          "home_team": "Chelsea",
+          "away_team": "West Ham",
+          "date": "31/01/2026",
+          "time": "16:00"
+        },
+        {
+          "home_team": "Nottm Forest",
+          "away_team": "Crystal Palace",
+          "date": "31/01/2026",
+          "time": "16:00"
+        }
+      ]
+    },
+    {
+      "matchday": "Matchday 25 of 38",
+      "matches": [
+        {
+          "home_team": "Leeds United",
+          "away_team": "Nottm Forest",
+          "date": "07/02/2026",
+          "time": "16:00"
+        },
+        {
+          "home_team": "Fulham",
+          "away_team": "Everton",
+          "date": "07/02/2026",
+          "time": "16:00"
+        },
+        {
+          "home_team": "Man United",
+          "away_team": "Tottenham",
+          "date": "07/02/2026",
+          "time": "16:00"
+        },
+        {
+          "home_team": "Burnley",
+          "away_team": "West Ham",
+          "date": "07/02/2026",
+          "time": "16:00"
+        },
+        {
+          "home_team": "Liverpool",
+          "away_team": "Man City",
+          "date": "07/02/2026",
+          "time": "16:00"
+        },
+        {
+          "home_team": "Brighton",
+          "away_team": "Crystal Palace",
+          "date": "07/02/2026",
+          "time": "16:00"
+        },
+        {
+          "home_team": "Arsenal",
+          "away_team": "Sunderland",
+          "date": "07/02/2026",
+          "time": "16:00"
+        },
+        {
+          "home_team": "Wolves",
+          "away_team": "Chelsea",
+          "date": "07/02/2026",
+          "time": "16:00"
+        },
+        {
+          "home_team": "Newcastle",
+          "away_team": "Brentford",
+          "date": "07/02/2026",
+          "time": "16:00"
+        },
+        {
+          "home_team": "Bournemouth",
+          "away_team": "Aston Villa",
+          "date": "07/02/2026",
+          "time": "16:00"
+        }
+      ]
+    },
+    {
+      "matchday": "Matchday 26 of 38",
+      "matches": [
+        {
+          "home_team": "Nottm Forest",
+          "away_team": "Wolves",
+          "date": "11/02/2026",
+          "time": "21:00"
+        },
+        {
+          "home_team": "Aston Villa",
+          "away_team": "Brighton",
+          "date": "11/02/2026",
+          "time": "21:00"
+        },
+        {
+          "home_team": "Crystal Palace",
+          "away_team": "Burnley",
+          "date": "11/02/2026",
+          "time": "21:00"
+        },
+        {
+          "home_team": "West Ham",
+          "away_team": "Man United",
+          "date": "11/02/2026",
+          "time": "21:00"
+        },
+        {
+          "home_team": "Man City",
+          "away_team": "Fulham",
+          "date": "11/02/2026",
+          "time": "21:00"
+        },
+        {
+          "home_team": "Sunderland",
+          "away_team": "Liverpool",
+          "date": "11/02/2026",
+          "time": "21:00"
+        },
+        {
+          "home_team": "Tottenham",
+          "away_team": "Newcastle",
+          "date": "11/02/2026",
+          "time": "21:00"
+        },
+        {
+          "home_team": "Brentford",
+          "away_team": "Arsenal",
+          "date": "11/02/2026",
+          "time": "21:00"
+        },
+        {
+          "home_team": "Chelsea",
+          "away_team": "Leeds United",
+          "date": "11/02/2026",
+          "time": "21:00"
+        },
+        {
+          "home_team": "Everton",
+          "away_team": "Bournemouth",
+          "date": "11/02/2026",
+          "time": "21:00"
+        }
+      ]
+    },
+    {
+      "matchday": "Matchday 27 of 38",
+      "matches": [
+        {
+          "home_team": "Aston Villa",
+          "away_team": "Leeds United",
+          "date": "21/02/2026",
+          "time": "16:00"
+        },
+        {
+          "home_team": "West Ham",
+          "away_team": "Bournemouth",
+          "date": "21/02/2026",
+          "time": "16:00"
+        },
+        {
+          "home_team": "Tottenham",
+          "away_team": "Arsenal",
+          "date": "21/02/2026",
+          "time": "16:00"
+        },
+        {
+          "home_team": "Nottm Forest",
+          "away_team": "Liverpool",
+          "date": "21/02/2026",
+          "time": "16:00"
+        },
+        {
+          "home_team": "Crystal Palace",
+          "away_team": "Wolves",
+          "date": "21/02/2026",
+          "time": "16:00"
+        },
+        {
+          "home_team": "Sunderland",
+          "away_team": "Fulham",
+          "date": "21/02/2026",
+          "time": "16:00"
+        },
+        {
+          "home_team": "Brentford",
+          "away_team": "Brighton",
+          "date": "21/02/2026",
+          "time": "16:00"
+        },
+        {
+          "home_team": "Man City",
+          "away_team": "Newcastle",
+          "date": "21/02/2026",
+          "time": "16:00"
+        },
+        {
+          "home_team": "Chelsea",
+          "away_team": "Burnley",
+          "date": "21/02/2026",
+          "time": "16:00"
+        },
+        {
+          "home_team": "Everton",
+          "away_team": "Man United",
+          "date": "21/02/2026",
+          "time": "16:00"
+        }
+      ]
+    },
+    {
+      "matchday": "Matchday 28 of 38",
+      "matches": [
+        {
+          "home_team": "Wolves",
+          "away_team": "Aston Villa",
+          "date": "28/02/2026",
+          "time": "16:00"
+        },
+        {
+          "home_team": "Bournemouth",
+          "away_team": "Sunderland",
+          "date": "28/02/2026",
+          "time": "16:00"
+        },
+        {
+          "home_team": "Leeds United",
+          "away_team": "Man City",
+          "date": "28/02/2026",
+          "time": "16:00"
+        },
+        {
+          "home_team": "Brighton",
+          "away_team": "Nottm Forest",
+          "date": "28/02/2026",
+          "time": "16:00"
+        },
+        {
+          "home_team": "Fulham",
+          "away_team": "Tottenham",
+          "date": "28/02/2026",
+          "time": "16:00"
+        },
+        {
+          "home_team": "Liverpool",
+          "away_team": "West Ham",
+          "date": "28/02/2026",
+          "time": "16:00"
+        },
+        {
+          "home_team": "Newcastle",
+          "away_team": "Everton",
+          "date": "28/02/2026",
+          "time": "16:00"
+        },
+        {
+          "home_team": "Man United",
+          "away_team": "Crystal Palace",
+          "date": "28/02/2026",
+          "time": "16:00"
+        },
+        {
+          "home_team": "Arsenal",
+          "away_team": "Chelsea",
+          "date": "28/02/2026",
+          "time": "16:00"
+        },
+        {
+          "home_team": "Burnley",
+          "away_team": "Brentford",
+          "date": "28/02/2026",
+          "time": "16:00"
+        }
+      ]
+    },
+    {
+      "matchday": "Matchday 29 of 38",
+      "matches": [
+        {
+          "home_team": "Brighton",
+          "away_team": "Arsenal",
+          "date": "04/03/2026",
+          "time": "21:00"
+        },
+        {
+          "home_team": "Wolves",
+          "away_team": "Liverpool",
+          "date": "04/03/2026",
+          "time": "21:00"
+        },
+        {
+          "home_team": "Man City",
+          "away_team": "Nottm Forest",
+          "date": "04/03/2026",
+          "time": "21:00"
+        },
+        {
+          "home_team": "Everton",
+          "away_team": "Burnley",
+          "date": "04/03/2026",
+          "time": "21:00"
+        },
+        {
+          "home_team": "Fulham",
+          "away_team": "West Ham",
+          "date": "04/03/2026",
+          "time": "21:00"
+        },
+        {
+          "home_team": "Aston Villa",
+          "away_team": "Chelsea",
+          "date": "04/03/2026",
+          "time": "21:00"
+        },
+        {
+          "home_team": "Newcastle",
+          "away_team": "Man United",
+          "date": "04/03/2026",
+          "time": "21:00"
+        },
+        {
+          "home_team": "Sunderland",
+          "away_team": "Leeds United",
+          "date": "04/03/2026",
+          "time": "21:00"
+        },
+        {
+          "home_team": "Tottenham",
+          "away_team": "Crystal Palace",
+          "date": "04/03/2026",
+          "time": "21:00"
+        },
+        {
+          "home_team": "Bournemouth",
+          "away_team": "Brentford",
+          "date": "04/03/2026",
+          "time": "21:00"
+        }
+      ]
+    },
+    {
+      "matchday": "Matchday 30 of 38",
+      "matches": [
+        {
+          "home_team": "Crystal Palace",
+          "away_team": "Leeds United",
+          "date": "14/03/2026",
+          "time": "16:00"
+        },
+        {
+          "home_team": "Burnley",
+          "away_team": "Bournemouth",
+          "date": "14/03/2026",
+          "time": "16:00"
+        },
+        {
+          "home_team": "Man United",
+          "away_team": "Aston Villa",
+          "date": "14/03/2026",
+          "time": "16:00"
+        },
+        {
+          "home_team": "Sunderland",
+          "away_team": "Brighton",
+          "date": "14/03/2026",
+          "time": "16:00"
+        },
+        {
+          "home_team": "West Ham",
+          "away_team": "Man City",
+          "date": "14/03/2026",
+          "time": "16:00"
+        },
+        {
+          "home_team": "Chelsea",
+          "away_team": "Newcastle",
+          "date": "14/03/2026",
+          "time": "16:00"
+        },
+        {
+          "home_team": "Brentford",
+          "away_team": "Wolves",
+          "date": "14/03/2026",
+          "time": "16:00"
+        },
+        {
+          "home_team": "Everton",
+          "away_team": "Arsenal",
+          "date": "14/03/2026",
+          "time": "16:00"
+        },
+        {
+          "home_team": "Nottm Forest",
+          "away_team": "Fulham",
+          "date": "14/03/2026",
+          "time": "16:00"
+        },
+        {
+          "home_team": "Tottenham",
+          "away_team": "Liverpool",
+          "date": "14/03/2026",
+          "time": "16:00"
+        }
+      ]
+    },
+    {
+      "matchday": "Matchday 31 of 38",
+      "matches": [
+        {
+          "home_team": "Brighton",
+          "away_team": "Liverpool",
+          "date": "21/03/2026",
+          "time": "16:00"
+        },
+        {
+          "home_team": "Fulham",
+          "away_team": "Burnley",
+          "date": "21/03/2026",
+          "time": "16:00"
+        },
+        {
+          "home_team": "Everton",
+          "away_team": "Chelsea",
+          "date": "21/03/2026",
+          "time": "16:00"
+        },
+        {
+          "home_team": "Wolves",
+          "away_team": "Arsenal",
+          "date": "21/03/2026",
+          "time": "16:00"
+        },
+        {
+          "home_team": "Man City",
+          "away_team": "Crystal Palace",
+          "date": "21/03/2026",
+          "time": "16:00"
+        },
+        {
+          "home_team": "Leeds United",
+          "away_team": "Brentford",
+          "date": "21/03/2026",
+          "time": "16:00"
+        },
+        {
+          "home_team": "Aston Villa",
+          "away_team": "West Ham",
+          "date": "21/03/2026",
+          "time": "16:00"
+        },
+        {
+          "home_team": "Newcastle",
+          "away_team": "Sunderland",
+          "date": "21/03/2026",
+          "time": "16:00"
+        },
+        {
+          "home_team": "Nottm Forest",
+          "away_team": "Tottenham",
+          "date": "21/03/2026",
+          "time": "16:00"
+        },
+        {
+          "home_team": "Bournemouth",
+          "away_team": "Man United",
+          "date": "21/03/2026",
+          "time": "16:00"
+        }
+      ]
+    },
+    {
+      "matchday": "Matchday 32 of 38",
+      "matches": [
+        {
+          "home_team": "Brentford",
+          "away_team": "Everton",
+          "date": "11/04/2026",
+          "time": "16:00"
+        },
+        {
+          "home_team": "Man United",
+          "away_team": "Leeds United",
+          "date": "11/04/2026",
+          "time": "16:00"
+        },
+        {
+          "home_team": "West Ham",
+          "away_team": "Wolves",
+          "date": "11/04/2026",
+          "time": "16:00"
+        },
+        {
+          "home_team": "Chelsea",
+          "away_team": "Man City",
+          "date": "11/04/2026",
+          "time": "16:00"
+        },
+        {
+          "home_team": "Sunderland",
+          "away_team": "Tottenham",
+          "date": "11/04/2026",
+          "time": "16:00"
+        },
+        {
+          "home_team": "Arsenal",
+          "away_team": "Bournemouth",
+          "date": "11/04/2026",
+          "time": "16:00"
+        },
+        {
+          "home_team": "Liverpool",
+          "away_team": "Fulham",
+          "date": "11/04/2026",
+          "time": "16:00"
+        },
+        {
+          "home_team": "Nottm Forest",
+          "away_team": "Aston Villa",
+          "date": "11/04/2026",
+          "time": "16:00"
+        },
+        {
+          "home_team": "Burnley",
+          "away_team": "Brighton",
+          "date": "11/04/2026",
+          "time": "16:00"
+        },
+        {
+          "home_team": "Crystal Palace",
+          "away_team": "Newcastle",
+          "date": "11/04/2026",
+          "time": "16:00"
+        }
+      ]
+    },
+    {
+      "matchday": "Matchday 33 of 38",
+      "matches": [
+        {
+          "home_team": "Man City",
+          "away_team": "Arsenal",
+          "date": "18/04/2026",
+          "time": "16:00"
+        },
+        {
+          "home_team": "Tottenham",
+          "away_team": "Brighton",
+          "date": "18/04/2026",
+          "time": "16:00"
+        },
+        {
+          "home_team": "Chelsea",
+          "away_team": "Man United",
+          "date": "18/04/2026",
+          "time": "16:00"
+        },
+        {
+          "home_team": "Aston Villa",
+          "away_team": "Sunderland",
+          "date": "18/04/2026",
+          "time": "16:00"
+        },
+        {
+          "home_team": "Everton",
+          "away_team": "Liverpool",
+          "date": "18/04/2026",
+          "time": "16:00"
+        },
+        {
+          "home_team": "Nottm Forest",
+          "away_team": "Burnley",
+          "date": "18/04/2026",
+          "time": "16:00"
+        },
+        {
+          "home_team": "Leeds United",
+          "away_team": "Wolves",
+          "date": "18/04/2026",
+          "time": "16:00"
+        },
+        {
+          "home_team": "Newcastle",
+          "away_team": "Bournemouth",
+          "date": "18/04/2026",
+          "time": "16:00"
+        },
+        {
+          "home_team": "Brentford",
+          "away_team": "Fulham",
+          "date": "18/04/2026",
+          "time": "16:00"
+        },
+        {
+          "home_team": "Crystal Palace",
+          "away_team": "West Ham",
+          "date": "18/04/2026",
+          "time": "16:00"
+        }
+      ]
+    },
+    {
+      "matchday": "Matchday 34 of 38",
+      "matches": [
+        {
+          "home_team": "Arsenal",
+          "away_team": "Newcastle",
+          "date": "25/04/2026",
+          "time": "16:00"
+        },
+        {
+          "home_team": "West Ham",
+          "away_team": "Everton",
+          "date": "25/04/2026",
+          "time": "16:00"
+        },
+        {
+          "home_team": "Man United",
+          "away_team": "Brentford",
+          "date": "25/04/2026",
+          "time": "16:00"
+        },
+        {
+          "home_team": "Burnley",
+          "away_team": "Man City",
+          "date": "25/04/2026",
+          "time": "16:00"
+        },
+        {
+          "home_team": "Fulham",
+          "away_team": "Aston Villa",
+          "date": "25/04/2026",
+          "time": "16:00"
+        },
+        {
+          "home_team": "Brighton",
+          "away_team": "Chelsea",
+          "date": "25/04/2026",
+          "time": "16:00"
+        },
+        {
+          "home_team": "Bournemouth",
+          "away_team": "Leeds United",
+          "date": "25/04/2026",
+          "time": "16:00"
+        },
+        {
+          "home_team": "Sunderland",
+          "away_team": "Nottm Forest",
+          "date": "25/04/2026",
+          "time": "16:00"
+        },
+        {
+          "home_team": "Wolves",
+          "away_team": "Tottenham",
+          "date": "25/04/2026",
+          "time": "16:00"
+        },
+        {
+          "home_team": "Liverpool",
+          "away_team": "Crystal Palace",
+          "date": "25/04/2026",
+          "time": "16:00"
+        }
+      ]
+    },
+    {
+      "matchday": "Matchday 35 of 38",
+      "matches": [
+        {
+          "home_team": "Aston Villa",
+          "away_team": "Tottenham",
+          "date": "02/05/2026",
+          "time": "16:00"
+        },
+        {
+          "home_team": "Chelsea",
+          "away_team": "Nottm Forest",
+          "date": "02/05/2026",
+          "time": "16:00"
+        },
+        {
+          "home_team": "Everton",
+          "away_team": "Man City",
+          "date": "02/05/2026",
+          "time": "16:00"
+        },
+        {
+          "home_team": "Man United",
+          "away_team": "Liverpool",
+          "date": "02/05/2026",
+          "time": "16:00"
+        },
+        {
+          "home_team": "Brentford",
+          "away_team": "West Ham",
+          "date": "02/05/2026",
+          "time": "16:00"
+        },
+        {
+          "home_team": "Leeds United",
+          "away_team": "Burnley",
+          "date": "02/05/2026",
+          "time": "16:00"
+        },
+        {
+          "home_team": "Arsenal",
+          "away_team": "Fulham",
+          "date": "02/05/2026",
+          "time": "16:00"
+        },
+        {
+          "home_team": "Wolves",
+          "away_team": "Sunderland",
+          "date": "02/05/2026",
+          "time": "16:00"
+        },
+        {
+          "home_team": "Newcastle",
+          "away_team": "Brighton",
+          "date": "02/05/2026",
+          "time": "16:00"
+        },
+        {
+          "home_team": "Bournemouth",
+          "away_team": "Crystal Palace",
+          "date": "02/05/2026",
+          "time": "16:00"
+        }
+      ]
+    },
+    {
+      "matchday": "Matchday 36 of 38",
+      "matches": [
+        {
+          "home_team": "Nottm Forest",
+          "away_team": "Newcastle",
+          "date": "09/05/2026",
+          "time": "13:30"
+        },
+        {
+          "home_team": "Tottenham",
+          "away_team": "Leeds United",
+          "date": "09/05/2026",
+          "time": "16:00"
+        },
+        {
+          "home_team": "Liverpool",
+          "away_team": "Chelsea",
+          "date": "09/05/2026",
+          "time": "16:00"
+        },
+        {
+          "home_team": "Man City",
+          "away_team": "Brentford",
+          "date": "09/05/2026",
+          "time": "16:00"
+        },
+        {
+          "home_team": "Fulham",
+          "away_team": "Bournemouth",
+          "date": "09/05/2026",
+          "time": "16:00"
+        },
+        {
+          "home_team": "Sunderland",
+          "away_team": "Man United",
+          "date": "09/05/2026",
+          "time": "16:00"
+        },
+        {
+          "home_team": "West Ham",
+          "away_team": "Arsenal",
+          "date": "09/05/2026",
+          "time": "18:30"
+        },
+        {
+          "home_team": "Brighton",
+          "away_team": "Wolves",
+          "date": "09/05/2026",
+          "time": "15:00"
+        },
+        {
+          "home_team": "Crystal Palace",
+          "away_team": "Everton",
+          "date": "09/05/2026",
+          "time": "17:30"
+        },
+        {
+          "home_team": "Burnley",
+          "away_team": "Aston Villa",
+          "date": "09/05/2026",
+          "time": "21:00"
+        }
+      ]
+    },
+    {
+      "matchday": "Matchday 37 of 38",
+      "matches": [
+        {
+          "home_team": "Brentford",
+          "away_team": "Crystal Palace",
+          "date": "17/05/2026",
+          "time": "16:00"
+        },
+        {
+          "home_team": "Bournemouth",
+          "away_team": "Man City",
+          "date": "17/05/2026",
+          "time": "16:00"
+        },
+        {
+          "home_team": "Chelsea",
+          "away_team": "Tottenham",
+          "date": "17/05/2026",
+          "time": "16:00"
+        },
+        {
+          "home_team": "Leeds United",
+          "away_team": "Brighton",
+          "date": "17/05/2026",
+          "time": "16:00"
+        },
+        {
+          "home_team": "Newcastle",
+          "away_team": "West Ham",
+          "date": "17/05/2026",
+          "time": "16:00"
+        },
+        {
+          "home_team": "Aston Villa",
+          "away_team": "Liverpool",
+          "date": "17/05/2026",
+          "time": "16:00"
+        },
+        {
+          "home_team": "Arsenal",
+          "away_team": "Burnley",
+          "date": "17/05/2026",
+          "time": "16:00"
+        },
+        {
+          "home_team": "Wolves",
+          "away_team": "Fulham",
+          "date": "17/05/2026",
+          "time": "16:00"
+        },
+        {
+          "home_team": "Everton",
+          "away_team": "Sunderland",
+          "date": "17/05/2026",
+          "time": "16:00"
+        },
+        {
+          "home_team": "Man United",
+          "away_team": "Nottm Forest",
+          "date": "17/05/2026",
+          "time": "16:00"
+        }
+      ]
+    },
+    {
+      "matchday": "Matchday 38 of 38",
+      "matches": [
+        {
+          "home_team": "Man City",
+          "away_team": "Aston Villa",
+          "date": "24/05/2026",
+          "time": "17:00"
+        },
+        {
+          "home_team": "Brighton",
+          "away_team": "Man United",
+          "date": "24/05/2026",
+          "time": "17:00"
+        },
+        {
+          "home_team": "Fulham",
+          "away_team": "Newcastle",
+          "date": "24/05/2026",
+          "time": "17:00"
+        },
+        {
+          "home_team": "Tottenham",
+          "away_team": "Everton",
+          "date": "24/05/2026",
+          "time": "17:00"
+        },
+        {
+          "home_team": "Liverpool",
+          "away_team": "Brentford",
+          "date": "24/05/2026",
+          "time": "17:00"
+        },
+        {
+          "home_team": "Burnley",
+          "away_team": "Wolves",
+          "date": "24/05/2026",
+          "time": "17:00"
+        },
+        {
+          "home_team": "Sunderland",
+          "away_team": "Chelsea",
+          "date": "24/05/2026",
+          "time": "17:00"
+        },
+        {
+          "home_team": "Crystal Palace",
+          "away_team": "Arsenal",
+          "date": "24/05/2026",
+          "time": "17:00"
+        },
+        {
+          "home_team": "West Ham",
+          "away_team": "Leeds United",
+          "date": "24/05/2026",
+          "time": "17:00"
+        },
+        {
+          "home_team": "Nottm Forest",
+          "away_team": "Bournemouth",
+          "date": "24/05/2026",
+          "time": "17:00"
+        }
+      ]
+    }
+  ]
+}
