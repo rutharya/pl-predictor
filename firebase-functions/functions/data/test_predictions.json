@@ -1,0 +1,145 @@
+{
+  "predictions": [
+    {
+      "fixtureId": "GW1-LIV-BOU",
+      "gameweek": 1,
+      "userId": "JY0gz915l6Xn5Y1Eg0nUO6Ki14L2",
+      "homeScore": 1,
+      "awayScore": 0
+    },
+    {
+      "fixtureId": "GW1-AVL-NEW",
+      "gameweek": 1,
+      "userId": "JY0gz915l6Xn5Y1Eg0nUO6Ki14L2",
+      "homeScore": 1,
+      "awayScore": 0
+    },
+    {
+      "fixtureId": "GW1-BHA-FUL",
+      "gameweek": 1,
+      "userId": "JY0gz915l6Xn5Y1Eg0nUO6Ki14L2",
+      "homeScore": 1,
+      "awayScore": 0
+    },
+    {
+      "fixtureId": "GW1-SUN-WHU",
+      "gameweek": 1,
+      "userId": "JY0gz915l6Xn5Y1Eg0nUO6Ki14L2",
+      "homeScore": 1,
+      "awayScore": 0
+    },
+    {
+      "fixtureId": "GW1-TOT-BUR",
+      "gameweek": 1,
+      "userId": "JY0gz915l6Xn5Y1Eg0nUO6Ki14L2",
+      "homeScore": 1,
+      "awayScore": 0
+    },
+    {
+      "fixtureId": "GW1-WOL-MCI",
+      "gameweek": 1,
+      "userId": "JY0gz915l6Xn5Y1Eg0nUO6Ki14L2",
+      "homeScore": 1,
+      "awayScore": 0
+    },
+    {
+      "fixtureId": "GW1-CHE-CRY",
+      "gameweek": 1,
+      "userId": "JY0gz915l6Xn5Y1Eg0nUO6Ki14L2",
+      "homeScore": 1,
+      "awayScore": 0
+    },
+    {
+      "fixtureId": "GW1-NFO-BRE",
+      "gameweek": 1,
+      "userId": "JY0gz915l6Xn5Y1Eg0nUO6Ki14L2",
+      "homeScore": 1,
+      "awayScore": 0
+    },
+    {
+      "fixtureId": "GW1-MUN-ARS",
+      "gameweek": 1,
+      "userId": "JY0gz915l6Xn5Y1Eg0nUO6Ki14L2",
+      "homeScore": 1,
+      "awayScore": 0
+    },
+    {
+      "fixtureId": "GW1-LEE-EVE",
+      "gameweek": 1,
+      "userId": "JY0gz915l6Xn5Y1Eg0nUO6Ki14L2",
+      "homeScore": 1,
+      "awayScore": 0
+    },
+
+    {
+      "fixtureId": "GW1-LIV-BOU",
+      "gameweek": 1,
+      "userId": "B7BYm5m71LU6vNSuPhxpuchAM4S2",
+      "homeScore": 1,
+      "awayScore": 0
+    },
+    {
+      "fixtureId": "GW1-AVL-NEW",
+      "gameweek": 1,
+      "userId": "B7BYm5m71LU6vNSuPhxpuchAM4S2",
+      "homeScore": 1,
+      "awayScore": 0
+    },
+    {
+      "fixtureId": "GW1-BHA-FUL",
+      "gameweek": 1,
+      "userId": "B7BYm5m71LU6vNSuPhxpuchAM4S2",
+      "homeScore": 1,
+      "awayScore": 0
+    },
+    {
+      "fixtureId": "GW1-SUN-WHU",
+      "gameweek": 1,
+      "userId": "B7BYm5m71LU6vNSuPhxpuchAM4S2",
+      "homeScore": 1,
+      "awayScore": 0
+    },
+    {
+      "fixtureId": "GW1-TOT-BUR",
+      "gameweek": 1,
+      "userId": "B7BYm5m71LU6vNSuPhxpuchAM4S2",
+      "homeScore": 1,
+      "awayScore": 0
+    },
+    {
+      "fixtureId": "GW1-WOL-MCI",
+      "gameweek": 1,
+      "userId": "B7BYm5m71LU6vNSuPhxpuchAM4S2",
+      "homeScore": 1,
+      "awayScore": 0
+    },
+    {
+      "fixtureId": "GW1-CHE-CRY",
+      "gameweek": 1,
+      "userId": "B7BYm5m71LU6vNSuPhxpuchAM4S2",
+      "homeScore": 1,
+      "awayScore": 0
+    },
+    {
+      "fixtureId": "GW1-NFO-BRE",
+      "gameweek": 1,
+      "userId": "B7BYm5m71LU6vNSuPhxpuchAM4S2",
+      "homeScore": 1,
+      "awayScore": 0
+    },
+    {
+      "fixtureId": "GW1-MUN-ARS",
+      "gameweek": 1,
+      "userId": "B7BYm5m71LU6vNSuPhxpuchAM4S2",
+      "homeScore": 1,
+      "awayScore": 0
+    },
+    {
+      "fixtureId": "GW1-LEE-EVE",
+      "gameweek": 1,
+      "userId": "B7BYm5m71LU6vNSuPhxpuchAM4S2",
+      "homeScore": 1,
+      "awayScore": 0
+    }
+  ]
+}

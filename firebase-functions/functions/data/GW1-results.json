@@ -1,0 +1,54 @@
+{
+  "GW1-Results": [
+    {
+      "fixtureId": "GW1-LIV-BOU",
+      "homeScore": 4,
+      "awayScore": 2
+    },
+    {
+      "fixtureId": "GW1-AVL-NEW",
+      "homeScore": 0,
+      "awayScore": 0
+    },
+    {
+      "fixtureId": "GW1-BHA-FUL",
+      "homeScore": 1,
+      "awayScore": 1
+    },
+    {
+      "fixtureId": "GW1-SUN-WHU",
+      "homeScore": 3,
+      "awayScore": 0
+    },
+    {
+      "fixtureId": "GW1-TOT-BUR",
+      "homeScore": 3,
+      "awayScore": 0
+    },
+    {
+      "fixtureId": "GW1-WOL-MCI",
+      "homeScore": 0,
+      "awayScore": 4
+    },
+    {
+      "fixtureId": "GW1-CHE-CRY",
+      "homeScore": 0,
+      "awayScore": 0
+    },
+    {
+      "fixtureId": "GW1-NFO-BRE",
+      "homeScore": 3,
+      "awayScore": 1
+    },
+    {
+      "fixtureId": "GW1-MUN-ARS",
+      "homeScore": 0,
+      "awayScore": 1
+    },
+    {
+      "fixtureId": "GW1-LEE-EVE",
+      "homeScore": 1,
+      "awayScore": 0
+    }
+  ]
+}

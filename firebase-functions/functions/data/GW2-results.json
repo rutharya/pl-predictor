@@ -1,0 +1,57 @@
+{
+  "GW2-Results": [
+    {
+      "id": "GW2-WHU-CHE",
+      "homeScore": 1,
+      "awayScore": 5
+    },
+    {
+      "id": "GW2-MCI-TOT",
+      "homeScore": 0,
+      "awayScore": 2
+    },
+    {
+      "id": "GW2-BOU-WOL",
+      "homeScore": 1,
+      "awayScore": 0
+    },
+    {
+      "id": "GW2-BRE-AVL",
+      "homeScore": 1,
+      "awayScore": 0
+    },
+    {
+      "id": "GW2-BUR-SUN",
+      "homeScore": 2,
+      "awayScore": 0
+    },
+    {
+      "id": "GW2-ARS-LEE",
+      "homeScore": 5,
+      "awayScore": 0
+    },
+    {
+      "id": "GW2-CRY-NFO",
+      "homeScore": null,
+      "awayScore": null
+    },
+    {
+      "id": "GW2-EVE-BHA",
+
+      "homeScore": null,
+      "awayScore": null
+    },
+    {
+      "id": "GW2-FUL-MUN",
+
+      "homeScore": null,
+      "awayScore": null
+    },
+    {
+      "id": "GW2-NEW-LIV",
+
+      "homeScore": null,
+      "awayScore": null
+    }
+  ]
+}
