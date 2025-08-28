@@ -11,22 +11,50 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { AuthService } from '../../core/auth.service';
 import { ProfileService } from '../../core/profile.service';
-import { FixturesService, Fixture } from '../../core/fixtures.service';
 import {
-  PredictionsService,
-  UserPrediction,
-} from '../../core/predictions.service';
-import {
-  LeaderboardService,
-  LeaderboardEntry,
-} from '../../core/leaderboard.service';
+  Firestore,
+  collection,
+  query,
+  orderBy,
+  limit,
+  where,
+  getDocs,
+  Timestamp,
+} from '@angular/fire/firestore';
 import { interval, takeUntil, Subject } from 'rxjs';
 
-// Extended interface for dashboard use
-interface PredictionWithFixture extends UserPrediction {
+export interface Fixture {
+  id: string;
+  homeTeam: string;
+  awayTeam: string;
+  homeTeamLogo?: string;
+  awayTeamLogo?: string;
+  kickoffTime: Date;
+  gameweek: number;
+  status: 'upcoming' | 'live' | 'finished';
+  homeScore?: number;
+  awayScore?: number;
+  predictionDeadline: Date;
+}
+
+export interface UserPrediction {
+  id: string;
+  fixtureId: string;
+  homeScore: number;
+  awayScore: number;
+  pointsEarned: number;
+  isCorrect: boolean;
+  createdAt: Date;
   fixture?: Fixture;
 }
 
+export interface LeaderboardEntry {
+  uid: string;
+  displayName: string;
+  photoURL?: string;
+  totalPoints: number;
+  position: number;
+}
 @Component({
   selector: 'app-dashboard2',
   imports: [CommonModule, RouterModule],
@@ -34,17 +62,18 @@ interface PredictionWithFixture extends UserPrediction {
   templateUrl: './dashboard2.html',
   styleUrl: './dashboard2.css',
 })
-export class Dashboard2 implements OnInit, OnDestroy {
+export class Dashboard2 {
+  isPredictionCorrect(_t142: UserPrediction) {
+    throw new Error('Method not implemented.');
+  }
+  private firestore = inject(Firestore);
   protected authService = inject(AuthService);
   protected profileService = inject(ProfileService);
-  private fixturesService = inject(FixturesService);
-  private predictionsService = inject(PredictionsService);
-  private leaderboardService = inject(LeaderboardService);
   private destroy$ = new Subject<void>();
 
   // Signals
   upcomingFixtures = signal<Fixture[]>([]);
-  recentPredictions = signal<PredictionWithFixture[]>([]);
+  recentPredictions = signal<UserPrediction[]>([]);
   topLeaderboard = signal<LeaderboardEntry[]>([]);
   currentGameweek = signal<number>(1);
   userRank = signal<number | null>(null);
@@ -104,8 +133,26 @@ export class Dashboard2 implements OnInit, OnDestroy {
 
   private async loadUpcomingFixtures(): Promise<void> {
     try {
-      // Use the FixturesService instead of direct Firestore calls
-      const fixtures = await this.fixturesService.loadUpcomingFixtures(5);
+      const fixturesRef = collection(this.firestore, 'fixtures');
+      const upcomingQuery = query(
+        fixturesRef,
+        where('gameweek', '==', this.currentGameweek()),
+        where('status', 'in', ['upcoming', 'live']),
+        orderBy('kickoffTime'),
+        limit(5)
+      );
+
+      const snapshot = await getDocs(upcomingQuery);
+      const fixtures = snapshot.docs.map(
+        (doc) =>
+          ({
+            id: doc.id,
+            ...doc.data(),
+            kickoffTime: doc.data()['kickoffTime'].toDate(),
+            predictionDeadline: doc.data()['predictionDeadline'].toDate(),
+          } as Fixture)
+      );
+
       this.upcomingFixtures.set(fixtures);
     } catch (error) {
       console.error('Error loading fixtures:', error);
@@ -119,9 +166,6 @@ export class Dashboard2 implements OnInit, OnDestroy {
           gameweek: this.currentGameweek(),
           status: 'upcoming',
           predictionDeadline: new Date(Date.now() + 82800000), // 1 hour before
-          matchDay: this.fixturesService.formatMatchDay(
-            new Date(Date.now() + 86400000)
-          ),
         },
         {
           id: '2',
@@ -131,9 +175,6 @@ export class Dashboard2 implements OnInit, OnDestroy {
           gameweek: this.currentGameweek(),
           status: 'upcoming',
           predictionDeadline: new Date(Date.now() + 169200000),
-          matchDay: this.fixturesService.formatMatchDay(
-            new Date(Date.now() + 172800000)
-          ),
         },
       ]);
     } finally {
@@ -149,30 +190,25 @@ export class Dashboard2 implements OnInit, OnDestroy {
     }
 
     try {
-      // Load basic predictions first
-      const basicPredictions =
-        await this.predictionsService.getRecentPredictions(userId, 5);
+      const predictionsRef = collection(this.firestore, 'predictions');
+      const recentQuery = query(
+        predictionsRef,
+        where('userId', '==', userId),
+        orderBy('createdAt', 'desc'),
+        limit(5)
+      );
 
-      // Load fixture data for each prediction
-      const predictionsWithFixtures: PredictionWithFixture[] =
-        await Promise.all(
-          basicPredictions.map(async (prediction) => {
-            try {
-              const fixture = await this.fixturesService.getFixtureById(
-                prediction.fixtureId
-              );
-              return { ...prediction, fixture: fixture || undefined };
-            } catch (error) {
-              console.error(
-                `Error loading fixture ${prediction.fixtureId}:`,
-                error
-              );
-              return { ...prediction };
-            }
-          })
-        );
+      const snapshot = await getDocs(recentQuery);
+      const predictions = snapshot.docs.map(
+        (doc) =>
+          ({
+            id: doc.id,
+            ...doc.data(),
+            createdAt: doc.data()['createdAt'].toDate(),
+          } as UserPrediction)
+      );
 
-      this.recentPredictions.set(predictionsWithFixtures);
+      this.recentPredictions.set(predictions);
     } catch (error) {
       console.error('Error loading predictions:', error);
       // Mock data for development
@@ -180,23 +216,19 @@ export class Dashboard2 implements OnInit, OnDestroy {
         {
           id: '1',
           fixtureId: '1',
-          userId: userId!,
           homeScore: 2,
           awayScore: 1,
           pointsEarned: 5,
+          isCorrect: true,
           createdAt: new Date(Date.now() - 86400000),
-          updatedAt: new Date(Date.now() - 86400000),
-          isSubmitted: true,
-          gameweek: this.currentGameweek() - 1,
           fixture: {
             id: '1',
             homeTeam: 'Manchester United',
             awayTeam: 'Tottenham',
-            kickoffTime: new Date(Date.now() - 86400000),
+            kickoffTime: new Date(),
             gameweek: this.currentGameweek() - 1,
             status: 'finished',
-            predictionDeadline: new Date(Date.now() - 90000000),
-            matchDay: 'Saturday, August 16',
+            predictionDeadline: new Date(),
           },
         },
       ]);
@@ -207,8 +239,26 @@ export class Dashboard2 implements OnInit, OnDestroy {
 
   private async loadTopLeaderboard(): Promise<void> {
     try {
-      // Use the LeaderboardService instead of direct Firestore calls
-      const leaderboard = await this.leaderboardService.getTopLeaderboard(5);
+      const usersRef = collection(this.firestore, 'users');
+      const leaderboardQuery = query(
+        usersRef,
+        where('preferences.privacy.showOnLeaderboard', '==', true),
+        orderBy('stats.totalPoints', 'desc'),
+        limit(5)
+      );
+
+      const snapshot = await getDocs(leaderboardQuery);
+      const leaderboard = snapshot.docs.map(
+        (doc, index) =>
+          ({
+            uid: doc.id,
+            displayName: doc.data()['displayName'],
+            photoURL: doc.data()['photoURL'],
+            totalPoints: doc.data()['stats']?.totalPoints || 0,
+            position: index + 1,
+          } as LeaderboardEntry)
+      );
+
       this.topLeaderboard.set(leaderboard);
     } catch (error) {
       console.error('Error loading leaderboard:', error);
@@ -240,9 +290,17 @@ export class Dashboard2 implements OnInit, OnDestroy {
     if (!userId) return;
 
     try {
-      // Use the LeaderboardService instead of direct Firestore calls
-      const rank = await this.leaderboardService.getUserRank(userId);
-      this.userRank.set(rank);
+      const userPoints =
+        this.profileService.userProfile()?.stats.totalPoints || 0;
+      const usersRef = collection(this.firestore, 'users');
+      const higherRankedQuery = query(
+        usersRef,
+        where('stats.totalPoints', '>', userPoints),
+        where('preferences.privacy.showOnLeaderboard', '==', true)
+      );
+
+      const snapshot = await getDocs(higherRankedQuery);
+      this.userRank.set(snapshot.docs.length + 1);
     } catch (error) {
       console.error('Error loading user rank:', error);
       this.userRank.set(null);
@@ -281,9 +339,6 @@ export class Dashboard2 implements OnInit, OnDestroy {
       minute: '2-digit',
     });
   }
-  public isPredictionCorrect(prediction: PredictionWithFixture): boolean {
-    return (prediction.pointsEarned || 0) > 0;
-  }
 
   formatPredictionDate(date: Date): string {
     const now = new Date();
@@ -298,8 +353,20 @@ export class Dashboard2 implements OnInit, OnDestroy {
   }
 
   getTimeUntilDeadline(deadline: Date): string {
-    // Use the FixturesService method for consistency
-    return this.fixturesService.getTimeUntilDeadline(deadline);
+    const now = new Date();
+    const diff = deadline.getTime() - now.getTime();
+
+    if (diff <= 0) return 'Closed';
+
+    const hours = Math.floor(diff / (1000 * 60 * 60));
+    const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+
+    if (hours > 24) {
+      const days = Math.floor(hours / 24);
+      return `${days}d ${hours % 24}h`;
+    }
+    if (hours > 0) return `${hours}h ${minutes}m`;
+    return `${minutes}m`;
   }
 
   getDeadlineClass(deadline: Date): string {
@@ -320,18 +387,16 @@ export class Dashboard2 implements OnInit, OnDestroy {
     return hoursLeft > 0 && hoursLeft <= 24;
   }
 
-  getPredictionResultClass(prediction: PredictionWithFixture): string {
-    const isCorrect = this.isPredictionCorrect(prediction);
-    return isCorrect
+  getPredictionResultClass(prediction: UserPrediction): string {
+    return prediction.isCorrect
       ? 'bg-green-500 text-green-100'
       : 'bg-red-500 text-red-100';
   }
 
-  getPointsClass(points: number | undefined): string {
-    const pointsValue = points || 0;
-    if (pointsValue >= 5) return 'text-green-400';
-    if (pointsValue >= 3) return 'text-yellow-400';
-    if (pointsValue > 0) return 'text-blue-400';
+  getPointsClass(points: number): string {
+    if (points >= 5) return 'text-green-400';
+    if (points >= 3) return 'text-yellow-400';
+    if (points > 0) return 'text-blue-400';
     return 'text-white/60';
   }
 

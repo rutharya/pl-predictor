@@ -9,7 +9,7 @@ import {
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { Auth2Service } from '../../core/auth2.service';
+import { AuthService } from '../../core/auth.service';
 import { ProfileService } from '../../core/profile.service';
 import {
   Firestore,
@@ -46,7 +46,7 @@ export interface LeaderboardEntry {
 })
 export class Leaderboard implements OnInit, OnDestroy {
   private firestore = inject(Firestore);
-  private authService = inject(Auth2Service);
+  private authService = inject(AuthService);
   private profileService = inject(ProfileService);
   private destroy$ = new Subject<void>();
   private searchSubject = new Subject<string>();

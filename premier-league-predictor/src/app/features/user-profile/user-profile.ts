@@ -2,7 +2,7 @@ import { Component, inject, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
-import { Auth2Service } from '../../core/auth2.service';
+import { AuthService } from '../../core/auth.service';
 import { ProfileService, UserPreferences } from '../../core/profile.service';
 
 @Component({
@@ -12,7 +12,7 @@ import { ProfileService, UserPreferences } from '../../core/profile.service';
   styleUrl: './user-profile.css',
 })
 export class UserProfile {
-  protected authService = inject(Auth2Service);
+  protected authService = inject(AuthService);
   protected profileService = inject(ProfileService);
 
   // Edit states

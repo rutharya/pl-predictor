@@ -1,25 +1,21 @@
 import { Routes } from '@angular/router';
-import { authGuard, unauthGuard, adminGuard } from './core/auth2.guard';
+import { authGuard, unauthGuard, adminGuard } from './core/auth.guard';
 import { Dashboard } from './features/dashboard/dashboard';
-import { LoginComponent } from './features/login/login';
-import { Login2 } from './features/login2/login2';
+// import { Login } from './features/login/login';
 
 export const routes: Routes = [
-  { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
+  {
+    path: '',
+    loadComponent: () =>
+      import('./features/landing/landing').then((m) => m.Landing),
+    title: 'Premier League Predictions - The Ultimate Football Game',
+  },
   {
     path: 'login',
-    loadComponent: () =>
-      import('./features/login2/login2').then((m) => m.Login2),
+    loadComponent: () => import('./features/login/login').then((m) => m.Login),
     canActivate: [unauthGuard],
     title: 'Login - Premier League Hub',
   },
-  //   {
-  //     path: 'dashboard',
-  //     loadComponent: () =>
-  //       import('./features/dashboard/dashboard').then((m) => m.Dashboard),
-  //     canActivate: [authGuard],
-  //     title: 'Dashboard - Premier League Hub',
-  //   },
   {
     path: 'dashboard',
     loadComponent: () =>
@@ -48,23 +44,4 @@ export const routes: Routes = [
     canActivate: [authGuard],
     title: 'Predictions - Premier League Hub',
   },
-
-  //   { path: 'login', component: Login2 },
-  //   {
-  //     path: 'dashboard',
-  //     component: Dashboard,
-  //     // canActivate: [AuthGuard]
-  //   },
-  //     {
-  //     path: '',
-  //     loadComponent: () => import('./home/home.component').then(m => m.HomeComponent)
-  //   },
-  //   {
-  //     path: 'login',
-  //     loadComponent: () => import('./auth/login/login.component').then(m => m.LoginComponent)
-  //   },
-  //   {
-  //     path: 'profile',
-  //     loadComponent: () => import('./profile/profile.component').then(m => m.ProfileComponent)
-  //   },
 ];

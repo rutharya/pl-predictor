@@ -390,7 +390,7 @@
                     [class]="getPredictionResultClass(prediction)"
                     class="w-6 h-6 rounded flex items-center justify-center"
                   >
-                    <!-- @if (this.isPredictionCorrect(prediction)) {
+                    @if (prediction.isCorrect) {
                     <svg
                       class="w-4 h-4"
                       fill="currentColor"
@@ -414,7 +414,7 @@
                         clip-rule="evenodd"
                       />
                     </svg>
-                    } -->
+                    }
                   </div>
                   <div>
                     <div class="text-white font-medium">

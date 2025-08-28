@@ -3,7 +3,7 @@ import { Router, RouterModule, RouterOutlet } from '@angular/router';
 import { Footer } from './shared/footer/footer';
 import { Navbar } from './shared/navbar/navbar';
 import { CommonModule } from '@angular/common';
-import { Auth2Service } from './core/auth2.service';
+import { AuthService } from './core/auth.service';
 import { ProfileService } from './core/profile.service';
 
 @Component({
@@ -16,7 +16,7 @@ import { ProfileService } from './core/profile.service';
 export class App implements OnInit {
   protected readonly title = signal('premier-league-predictor');
 
-  protected authService = inject(Auth2Service);
+  protected authService = inject(AuthService);
   protected profileService = inject(ProfileService);
   private router = inject(Router);
 

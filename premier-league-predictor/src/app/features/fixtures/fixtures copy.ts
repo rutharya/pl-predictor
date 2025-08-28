@@ -1,4 +1,3 @@
-// fixtures.component.ts - Refactored with Services
 import {
   Component,
   inject,
@@ -18,6 +17,19 @@ import {
 import { AuthService } from '../../core/auth.service';
 import { ProfileService } from '../../core/profile.service';
 import {
+  Firestore,
+  collection,
+  query,
+  orderBy,
+  where,
+  getDocs,
+  doc,
+  setDoc,
+  updateDoc,
+  getDoc,
+  Timestamp,
+} from '@angular/fire/firestore';
+import {
   FixturesService,
   Fixture,
   GroupedFixtures,
@@ -27,6 +39,7 @@ import {
   UserPrediction,
   PredictionStats,
 } from '../../core/predictions.service';
+
 import {
   interval,
   takeUntil,
@@ -34,6 +47,37 @@ import {
   debounceTime,
   distinctUntilChanged,
 } from 'rxjs';
+
+// export interface Fixture {
+//   id: string;
+//   homeTeam: string;
+//   awayTeam: string;
+//   homeTeamLogo?: string;
+//   awayTeamLogo?: string;
+//   kickoffTime: Date;
+//   gameweek: number;
+//   status: 'upcoming' | 'live' | 'finished';
+//   homeScore?: number;
+//   awayScore?: number;
+//   predictionDeadline: Date;
+//   matchDay: string; // e.g., "Saturday, Dec 23"
+// }
+
+// export interface UserPrediction {
+//   id?: string;
+//   fixtureId: string;
+//   userId: string;
+//   homeScore: number;
+//   awayScore: number;
+//   createdAt: Date;
+//   updatedAt: Date;
+//   pointsEarned?: number;
+//   isSubmitted: boolean;
+// }
+
+// export interface GroupedFixtures {
+//   [matchDay: string]: Fixture[];
+// }
 
 @Component({
   selector: 'app-fixtures',
@@ -43,6 +87,7 @@ import {
   styleUrl: './fixtures.css',
 })
 export class Fixtures implements OnInit, OnDestroy {
+  private firestore = inject(Firestore);
   private fb = inject(FormBuilder);
   protected authService = inject(AuthService);
   private profileService = inject(ProfileService);
@@ -71,9 +116,34 @@ export class Fixtures implements OnInit, OnDestroy {
   scoreOptions = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
 
   // Computed properties
+  // groupedFixtures = computed(() => {
+  //   const fixtures = this.fixtures();
+  //   const grouped: GroupedFixtures = {};
+
+  //   fixtures.forEach((fixture) => {
+  //     if (!grouped[fixture.matchDay]) {
+  //       grouped[fixture.matchDay] = [];
+  //     }
+  //     grouped[fixture.matchDay].push(fixture);
+  //   });
+
+  //   return grouped;
+  // });
   groupedFixtures = computed(() => {
     return this.fixturesService.groupFixturesByMatchDay(this.fixtures());
   });
+
+  // predictionStats = computed(() => {
+  //   const allFixtures = this.fixtures();
+  //   const predictions = this.userPredictions();
+
+  //   const total = allFixtures.length;
+  //   const completed = allFixtures.filter((f) => predictions.has(f.id)).length;
+  //   const locked = allFixtures.filter((f) => this.isPredictionLocked(f)).length;
+  //   const remaining = total - completed - locked;
+
+  //   return { total, completed, remaining, locked };
+  // });
 
   predictionStats = computed(() => {
     return this.predictionsService.calculatePredictionStats(
@@ -83,6 +153,7 @@ export class Fixtures implements OnInit, OnDestroy {
     );
   });
 
+  // Object: any;
   protected readonly Object = Object;
 
   ngOnInit(): void {
@@ -102,7 +173,7 @@ export class Fixtures implements OnInit, OnDestroy {
   private setupAutoSave(): void {
     this.autoSaveSubject
       .pipe(
-        debounceTime(2000),
+        debounceTime(2000), // Wait 2 seconds after last change
         distinctUntilChanged(
           (prev, curr) =>
             prev.fixtureId === curr.fixtureId &&
@@ -116,11 +187,13 @@ export class Fixtures implements OnInit, OnDestroy {
   }
 
   private loadAvailableGameweeks(): void {
+    // Generate gameweeks 1-38 for Premier League
     const gameweeks = Array.from({ length: 38 }, (_, i) => i + 1);
     this.availableGameweeks.set(gameweeks);
   }
 
   private loadCurrentGameweek(): void {
+    // Calculate current gameweek based on date
     const seasonStart = new Date('2025-08-17');
     const now = new Date();
     const weeksDiff = Math.floor(
@@ -137,6 +210,12 @@ export class Fixtures implements OnInit, OnDestroy {
     }
   }
 
+  // private async loadFixturesAndPredictions(): Promise<void> {
+  //   this.isLoading.set(true);
+  //   await Promise.all([this.loadFixtures(), this.loadUserPredictions()]);
+  //   this.setupPredictionForms();
+  //   this.isLoading.set(false);
+  // }
   private async loadFixturesAndPredictions(): Promise<void> {
     this.isLoading.set(true);
 
@@ -163,6 +242,133 @@ export class Fixtures implements OnInit, OnDestroy {
       console.error('Error loading fixtures and predictions:', error);
     } finally {
       this.isLoading.set(false);
+    }
+  }
+
+  // private async loadFixtures(): Promise<void> {
+  //   try {
+  //     const fixturesRef = collection(this.firestore, 'fixtures');
+
+  //     const fixturesQuery = query(
+  //       fixturesRef,
+  //       where('gameweek', '==', this.selectedGameweek()),
+  //       orderBy('kickoffTime')
+  //     );
+
+  //     const snapshot = await getDocs(fixturesQuery);
+  //     const fixtures = snapshot.docs.map((doc) => {
+  //       const data = doc.data();
+  //       return {
+  //         id: doc.id,
+  //         ...data,
+  //         kickoffTime: data['kickoffTime'].toDate(),
+  //         predictionDeadline: data['predictionDeadline'].toDate(),
+  //         matchDay: this.formatMatchDay(data['kickoffTime'].toDate()),
+  //       } as Fixture;
+  //     });
+
+  //     this.fixtures.set(fixtures);
+  //   } catch (error) {
+  //     console.error('Error loading fixtures:', error);
+  //     // Mock data for development
+  //     // this.loadMockFixtures();
+  //   }
+  // }
+
+  // private loadMockFixtures(): void {
+  //   const baseDate = new Date();
+  //   baseDate.setDate(baseDate.getDate() + 1); // Tomorrow
+
+  //   const mockFixtures: Fixture[] = [
+  //     {
+  //       id: '1',
+  //       homeTeam: 'Manchester City',
+  //       awayTeam: 'Arsenal',
+  //       kickoffTime: new Date(baseDate.getTime()),
+  //       predictionDeadline: new Date(baseDate.getTime() - 3600000), // 1 hour before
+  //       gameweek: this.selectedGameweek(),
+  //       status: 'upcoming',
+  //       matchDay: this.formatMatchDay(baseDate),
+  //     },
+  //     {
+  //       id: '2',
+  //       homeTeam: 'Liverpool',
+  //       awayTeam: 'Chelsea',
+  //       kickoffTime: new Date(baseDate.getTime() + 7200000), // 2 hours later
+  //       predictionDeadline: new Date(baseDate.getTime() + 3600000),
+  //       gameweek: this.selectedGameweek(),
+  //       status: 'upcoming',
+  //       matchDay: this.formatMatchDay(baseDate),
+  //     },
+  //     {
+  //       id: '3',
+  //       homeTeam: 'Manchester United',
+  //       awayTeam: 'Tottenham',
+  //       kickoffTime: new Date(baseDate.getTime() + 86400000), // Next day
+  //       predictionDeadline: new Date(baseDate.getTime() + 82800000),
+  //       gameweek: this.selectedGameweek(),
+  //       status: 'upcoming',
+  //       matchDay: this.formatMatchDay(new Date(baseDate.getTime() + 86400000)),
+  //     },
+  //     {
+  //       id: '4',
+  //       homeTeam: 'Newcastle United',
+  //       awayTeam: 'Brighton',
+  //       kickoffTime: new Date(baseDate.getTime() + 86400000 + 7200000), // Next day + 2 hours
+  //       predictionDeadline: new Date(baseDate.getTime() + 86400000 + 3600000),
+  //       gameweek: this.selectedGameweek(),
+  //       status: 'upcoming',
+  //       matchDay: this.formatMatchDay(new Date(baseDate.getTime() + 86400000)),
+  //     },
+  //     {
+  //       id: '5',
+  //       homeTeam: 'West Ham',
+  //       awayTeam: 'Everton',
+  //       kickoffTime: new Date(baseDate.getTime() + 172800000), // Day after tomorrow
+  //       predictionDeadline: new Date(baseDate.getTime() + 169200000),
+  //       gameweek: this.selectedGameweek(),
+  //       status: 'upcoming',
+  //       matchDay: this.formatMatchDay(new Date(baseDate.getTime() + 172800000)),
+  //     },
+  //   ];
+
+  //   this.fixtures.set(mockFixtures);
+  // }
+
+  private async loadUserPredictions(): Promise<void> {
+    const userId = this.authService.getCurrentUserId();
+    if (!userId) return;
+
+    try {
+      const predictionsRef = collection(this.firestore, 'predictions');
+      const predictionsQuery = query(
+        predictionsRef,
+        where('userId', '==', userId),
+        where('gameweek', '==', this.selectedGameweek())
+      );
+
+      const snapshot = await getDocs(predictionsQuery);
+      const predictionsMap = new Map<string, UserPrediction>();
+
+      snapshot.docs.forEach((doc) => {
+        const data = doc.data() as UserPrediction;
+        predictionsMap.set(data.fixtureId, {
+          id: doc.id,
+          ...data,
+          createdAt:
+            data.createdAt instanceof Date
+              ? data.createdAt
+              : (data.createdAt as any).toDate(),
+          updatedAt:
+            data.updatedAt instanceof Date
+              ? data.updatedAt
+              : (data.updatedAt as any).toDate(),
+        });
+      });
+
+      this.userPredictions.set(predictionsMap);
+    } catch (error) {
+      console.error('Error loading predictions:', error);
     }
   }
 
@@ -212,6 +418,7 @@ export class Fixtures implements OnInit, OnDestroy {
     const prediction = form.value;
     const existingPrediction = this.userPredictions().get(fixtureId);
 
+    // Check if prediction has changed
     const hasChanged =
       !existingPrediction ||
       existingPrediction.homeScore !== prediction.homeScore ||
@@ -230,6 +437,76 @@ export class Fixtures implements OnInit, OnDestroy {
     await this.savePrediction(fixtureId, form.value, false);
   }
 
+  // private async savePrediction(
+  //   fixtureId: string,
+  //   prediction: any,
+  //   isAutoSave: boolean = false
+  // ): Promise<void> {
+  //   const userId = this.authService.getCurrentUserId();
+  //   if (!userId) return;
+
+  //   try {
+  //     if (!isAutoSave) this.isSaving.set(true);
+
+  //     const existingPrediction = this.userPredictions().get(fixtureId);
+  //     const now = new Date();
+
+  //     const predictionData: Partial<UserPrediction> = {
+  //       fixtureId,
+  //       userId,
+  //       homeScore: prediction.homeScore,
+  //       awayScore: prediction.awayScore,
+  //       createdAt: existingPrediction?.createdAt || now,
+  //       updatedAt: now,
+  //       isSubmitted: true,
+  //     };
+
+  //     let docId: string;
+  //     if (existingPrediction?.id) {
+  //       // Update existing prediction
+  //       docId = existingPrediction.id;
+  //       const predictionRef = doc(this.firestore, 'predictions', docId);
+  //       await updateDoc(predictionRef, {
+  //         homeScore: predictionData.homeScore,
+  //         awayScore: predictionData.awayScore,
+  //         updatedAt: Timestamp.fromDate(now),
+  //         gameweek: this.selectedGameweek(),
+  //       });
+  //     } else {
+  //       // Create new prediction
+  //       docId = `${userId}_${fixtureId}_${this.selectedGameweek()}`;
+  //       const predictionRef = doc(this.firestore, 'predictions', docId);
+  //       await setDoc(predictionRef, {
+  //         ...predictionData,
+  //         gameweek: this.selectedGameweek(),
+  //         createdAt: Timestamp.fromDate(predictionData.createdAt!),
+  //         updatedAt: Timestamp.fromDate(now),
+  //       });
+  //     }
+
+  //     // Update local state with optimistic update
+  //     const updatedPredictions = new Map(this.userPredictions());
+  //     updatedPredictions.set(fixtureId, {
+  //       ...(predictionData as UserPrediction),
+  //       id: docId,
+  //     });
+  //     this.userPredictions.set(updatedPredictions);
+
+  //     this.unsavedChanges.set(fixtureId, false);
+  //     this.lastSavedTime.set(now);
+
+  //     // Update user stats
+  //     if (!existingPrediction) {
+  //       await this.profileService.incrementMatchCount();
+  //     }
+  //   } catch (error) {
+  //     console.error('Error saving prediction:', error);
+  //     // Revert optimistic update on error
+  //     this.unsavedChanges.set(fixtureId, true);
+  //   } finally {
+  //     if (!isAutoSave) this.isSaving.set(false);
+  //   }
+  // }
   private async savePrediction(
     fixtureId: string,
     prediction: any,
@@ -274,15 +551,17 @@ export class Fixtures implements OnInit, OnDestroy {
   }
 
   private startPeriodicUpdates(): void {
+    // Update every minute for countdown timers
     interval(60000)
       .pipe(takeUntil(this.destroy$))
       .subscribe(() => {
-        // Force change detection for countdown timers
+        // This would update live scores and countdown timers
+        // For now, just force change detection by updating a signal
         this.lastSavedTime.set(this.lastSavedTime());
       });
   }
 
-  // UI Helper Methods (delegated to services where appropriate)
+  // UI Helper Methods
   getGameweekButtonClass(gameweek: number): string {
     return this.selectedGameweek() === gameweek
       ? 'bg-white text-gray-900 shadow-lg'
@@ -320,7 +599,20 @@ export class Fixtures implements OnInit, OnDestroy {
   }
 
   getTimeUntilDeadline(deadline: Date): string {
-    return this.fixturesService.getTimeUntilDeadline(deadline);
+    const now = new Date();
+    const diff = deadline.getTime() - now.getTime();
+
+    if (diff <= 0) return 'Closed';
+
+    const hours = Math.floor(diff / (1000 * 60 * 60));
+    const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+
+    if (hours > 24) {
+      const days = Math.floor(hours / 24);
+      return `${days}d ${hours % 24}h`;
+    }
+    if (hours > 0) return `${hours}h ${minutes}m`;
+    return `${minutes}m`;
   }
 
   getDeadlineClass(deadline: Date): string {
@@ -335,7 +627,7 @@ export class Fixtures implements OnInit, OnDestroy {
   }
 
   isPredictionLocked(fixture: Fixture): boolean {
-    return this.fixturesService.isPredictionLocked(fixture);
+    return new Date() >= fixture.predictionDeadline;
   }
 
   hasUnsavedChanges(fixtureId: string): boolean {
@@ -410,68 +702,20 @@ export class Fixtures implements OnInit, OnDestroy {
   }
 
   refreshFixtures(): void {
-    this.fixturesService.clearCache();
-    this.predictionsService.clearCacheForUser(
-      this.authService.getCurrentUserId()!,
-      this.selectedGameweek()
-    );
     this.loadFixturesAndPredictions();
   }
 
-  // Batch operations using the predictions service
-  async saveAllPredictions(): Promise<void> {
-    const userId = this.authService.getCurrentUserId();
-    if (!userId) return;
+  // Batch operations
+  saveAllPredictions(): Promise<void[]> {
+    const savePromises: Promise<void>[] = [];
 
-    try {
-      this.isSaving.set(true);
-
-      const predictionsToSave: Array<{
-        fixtureId: string;
-        homeScore: number;
-        awayScore: number;
-        gameweek: number;
-      }> = [];
-
-      // Collect all valid unsaved predictions
-      this.predictionForms.forEach((form, fixtureId) => {
-        if (form.valid && this.hasUnsavedChanges(fixtureId)) {
-          const values = form.value;
-          predictionsToSave.push({
-            fixtureId,
-            homeScore: values.homeScore,
-            awayScore: values.awayScore,
-            gameweek: this.selectedGameweek(),
-          });
-        }
-      });
-
-      if (predictionsToSave.length > 0) {
-        await this.predictionsService.batchSavePredictions(
-          userId,
-          predictionsToSave
-        );
-
-        // Clear unsaved changes for all saved predictions
-        predictionsToSave.forEach((prediction) => {
-          this.unsavedChanges.set(prediction.fixtureId, false);
-        });
-
-        this.lastSavedTime.set(new Date());
-
-        // Reload predictions to get the latest state
-        const updatedPredictions =
-          await this.predictionsService.loadUserPredictions(
-            userId,
-            this.selectedGameweek()
-          );
-        this.userPredictions.set(updatedPredictions);
+    this.predictionForms.forEach((form, fixtureId) => {
+      if (form.valid && this.hasUnsavedChanges(fixtureId)) {
+        savePromises.push(this.savePredictionManually(fixtureId));
       }
-    } catch (error) {
-      console.error('Error saving all predictions:', error);
-    } finally {
-      this.isSaving.set(false);
-    }
+    });
+
+    return Promise.all(savePromises);
   }
 
   hasAnyUnsavedChanges(): boolean {
@@ -484,45 +728,5 @@ export class Fixtures implements OnInit, OnDestroy {
     return Array.from(this.unsavedChanges.values()).filter(
       (hasChanges) => hasChanges
     ).length;
-  }
-
-  // Delete a prediction
-  async deletePrediction(fixtureId: string): Promise<void> {
-    const userId = this.authService.getCurrentUserId();
-    const prediction = this.userPredictions().get(fixtureId);
-
-    if (!userId || !prediction?.id) return;
-
-    try {
-      this.isSaving.set(true);
-
-      await this.predictionsService.deletePrediction(
-        prediction.id,
-        userId,
-        this.selectedGameweek(),
-        fixtureId
-      );
-
-      // Update local state
-      const updatedPredictions = new Map(this.userPredictions());
-      updatedPredictions.delete(fixtureId);
-      this.userPredictions.set(updatedPredictions);
-
-      // Reset form
-      const form = this.predictionForms.get(fixtureId);
-      if (form) {
-        form.patchValue({ homeScore: 0, awayScore: 0 });
-      }
-      this.unsavedChanges.set(fixtureId, false);
-    } catch (error) {
-      console.error('Error deleting prediction:', error);
-    } finally {
-      this.isSaving.set(false);
-    }
-  }
-
-  // Get prediction statistics
-  getPredictionStats(): PredictionStats {
-    return this.predictionStats();
   }
 }

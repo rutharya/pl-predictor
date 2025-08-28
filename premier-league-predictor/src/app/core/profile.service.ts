@@ -11,7 +11,7 @@ import {
   onSnapshot,
   Unsubscribe,
 } from '@angular/fire/firestore';
-import { Auth2Service, AuthUser } from './auth2.service';
+import { AuthService, AuthUser } from './auth.service';
 import { Observable, from, BehaviorSubject } from 'rxjs';
 
 export interface UserProfile {
@@ -55,7 +55,7 @@ export interface UserPreferences {
 })
 export class ProfileService {
   private firestore = inject(Firestore);
-  private authService = inject(Auth2Service);
+  private authService = inject(AuthService);
 
   // Signals for reactive state management
   userProfile = signal<UserProfile | null>(null);
