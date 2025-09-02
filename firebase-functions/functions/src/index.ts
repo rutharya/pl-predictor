@@ -18,6 +18,15 @@ import * as path from "path";
 import { Timestamp, FieldValue } from "firebase-admin/firestore";
 import { onDocumentUpdated } from "firebase-functions/firestore";
 
+// Collection names CONSTS
+const USERS_COLLECTION = "users";
+const TEAMS_COLLECTION = "teams";
+const FIXTURES_COLLECTION = "fixtures";
+const PREDICTIONS_COLLECTION = "predictions";
+const PREDICTIONS_COLLECTION_TEST = "predictions-test";
+
+// const FIXTURES_TEST_COLLECTION = "fix";
+
 // data models
 // TypeScript interfaces
 interface MatchResult {
@@ -80,7 +89,7 @@ export const importTeams = onRequest(
       const teamsFile = fs.readFileSync(teamsPath, "utf8");
       const teams = JSON.parse(teamsFile);
 
-      const teamsCollection = db.collection("teams");
+      const teamsCollection = db.collection(TEAMS_COLLECTION);
 
       // 2. Create a batch
       const batch = db.batch();
@@ -176,7 +185,7 @@ export const importFixtures = onRequest(
           const fixtureId = `GW${gameweek}-${homeTC}-${awayTC}`;
 
           // 6. Define the Firestore document
-          const fixtureRef = db.collection("fix").doc(fixtureId);
+          const fixtureRef = db.collection(FIXTURES_COLLECTION).doc(fixtureId);
           const fixtureDoc = {
             homeTeam: match.home_team,
             awayTeam: match.away_team,
@@ -234,7 +243,7 @@ export const updateFixtureSchedule = onRequest(
       }
 
       const db = admin.firestore();
-      const fixtureRef = db.collection("fix").doc(fixtureId);
+      const fixtureRef = db.collection(FIXTURES_COLLECTION).doc(fixtureId);
       const fixtureDoc = await fixtureRef.get();
 
       if (!fixtureDoc.exists) {
@@ -375,7 +384,7 @@ export const getFixture = onRequest(
       fixtureId = fixtureId.replace(/^\//, "");
 
       const db = admin.firestore();
-      const fixtureRef = db.collection("fix").doc(fixtureId);
+      const fixtureRef = db.collection(FIXTURES_COLLECTION).doc(fixtureId);
       const fixtureDoc = await fixtureRef.get();
 
       if (!fixtureDoc.exists) {
@@ -485,7 +494,7 @@ export const getGameweekFixtures = onRequest(
 
       const db = admin.firestore();
       const fixturesQuery = await db
-        .collection("fixtures")
+        .collection(FIXTURES_COLLECTION)
         .where("gameweek", "==", gameweek)
         .orderBy("kickoffTime", "asc")
         .get();
@@ -639,7 +648,7 @@ export const updateMatchResult = onRequest(
       }
 
       const db = admin.firestore();
-      const fixtureRef = db.collection("fix").doc(fixtureId);
+      const fixtureRef = db.collection(FIXTURES_COLLECTION).doc(fixtureId);
       const fixtureDoc = await fixtureRef.get();
 
       if (!fixtureDoc.exists) {
@@ -685,7 +694,7 @@ export const updateMatchResult = onRequest(
  * Trigger: When fixture document is updated
  */
 export const calculatePointsOnFixtureUpdate = onDocumentUpdated(
-  "fix/{fixtureId}",
+  `fixtures/{fixtureId}`,
   async (event) => {
     try {
       const beforeData = event.data?.before.data();
@@ -717,7 +726,7 @@ export const calculatePointsOnFixtureUpdate = onDocumentUpdated(
 
       // Get all predictions for this fixture
       const predictionsQuery = await db
-        .collection("predictions2")
+        .collection(PREDICTIONS_COLLECTION)
         .where("fixtureId", "==", fixtureId)
         .get();
 
@@ -780,22 +789,24 @@ async function processPredictionsInBatches(
       }
 
       const points = calculatePoints(
-        prediction.homeScore,
-        prediction.awayScore,
+        parseInt(prediction.homeScore),
+        parseInt(prediction.awayScore),
         homeScore,
         awayScore
       );
       logger.log("ruthar - points earned");
       logger.log(points);
       // Update prediction with points
-      const predictionRef = db.collection("predictions2").doc(prediction.id);
+      const predictionRef = db
+        .collection(PREDICTIONS_COLLECTION)
+        .doc(prediction.id);
       batch.update(predictionRef, {
         pointsEarned: points,
         calculatedAt: Timestamp.now(),
       });
 
       // Update user stats
-      const userRef = db.collection("users").doc(prediction.userId);
+      const userRef = db.collection(USERS_COLLECTION).doc(prediction.userId);
       // const increment = admin.firestore.FieldValue.increment(1);
       // const pointsIncrement = admin.firestore.FieldValue.increment(points);
 
@@ -805,34 +816,45 @@ async function processPredictionsInBatches(
       const currentStats = userDoc.data()?.stats || {
         totalPoints: 0,
         exactPredictions: 0,
-        correctOutcomes: 0,
+        correctPredictions: 0,
         wrongPredictions: 0,
-        predictionsCount: 0,
+        processedPredictionsCount: 0,
+        accuracyRate: 0,
       };
 
       // Calculate new values
       const newStats = {
-        totalPoints: currentStats.totalPoints + points,
-        predictionsCount: currentStats.predictionsCount + 1,
+        totalPoints: parseInt(currentStats.totalPoints) + points,
+        processedPredictionsCount:
+          parseInt(currentStats.processedPredictionsCount) + 1,
         exactPredictions:
-          currentStats.exactPredictions + (points === 3 ? 1 : 0),
-        correctOutcomes: currentStats.correctOutcomes + (points === 1 ? 1 : 0),
+          parseInt(currentStats.exactPredictions) + (points === 3 ? 1 : 0),
+        correctPredictions:
+          parseInt(currentStats.correctPredictions) + (points === 1 ? 1 : 0),
         wrongPredictions:
-          currentStats.wrongPredictions + (points === 0 ? 1 : 0),
+          parseInt(currentStats.wrongPredictions) + (points === 0 ? 1 : 0),
+        accuracyRate: parseFloat(currentStats.accuracyRate),
       };
+
+      // update the accuracy rate.. based on new stats
+      newStats.accuracyRate = Math.round(
+        ((newStats.correctPredictions + newStats.exactPredictions) /
+          newStats.processedPredictionsCount) *
+          100
+      );
 
       const updateData = { stats: newStats };
       // const updateData: any = {
       //   stats: {
       //     totalPoints: pointsIncrement,
-      //     predictionsCount: increment,
+      //     processedPredictionsCount: increment,
       //   },
       // };
 
       // if (points === 3) {
       //   updateData.stats.exactPredictions = increment;
       // } else if (points === 1) {
-      //   updateData.stats.correctOutcomes = increment;
+      //   updateData.stats.correctPredictions = increment;
       // } else {
       //   updateData.stats.wrongPredictions = increment;
       // }
@@ -872,7 +894,7 @@ export const importPredictions = onRequest(
       const predictionsData = JSON.parse(predictionsFile);
       const allPredictions = predictionsData.predictions;
 
-      const predictionsCollection = db.collection("predictions2");
+      const predictionsCollection = db.collection(PREDICTIONS_COLLECTION_TEST);
 
       const batch = db.batch();
       console.log(allPredictions[0]);
