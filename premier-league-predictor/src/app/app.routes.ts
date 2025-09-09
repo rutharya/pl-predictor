@@ -1,7 +1,5 @@
 import { Routes } from '@angular/router';
 import { authGuard, unauthGuard, adminGuard } from './core/auth.guard';
-import { Dashboard } from './features/dashboard/dashboard';
-// import { Login } from './features/login/login';
 
 export const routes: Routes = [
   {
@@ -19,7 +17,7 @@ export const routes: Routes = [
   {
     path: 'dashboard',
     loadComponent: () =>
-      import('./features/dashboard2/dashboard2').then((m) => m.Dashboard2),
+      import('./features/dashboard/dashboard').then((m) => m.Dashboard2),
     canActivate: [authGuard],
     title: 'Dashboard - Premier League Hub',
   },

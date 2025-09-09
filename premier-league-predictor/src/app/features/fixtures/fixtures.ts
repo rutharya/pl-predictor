@@ -123,7 +123,7 @@ export class Fixtures implements OnInit, OnDestroy {
   private loadCurrentGameweek(): void {
     const seasonStart = new Date('2025-08-17');
     const now = new Date();
-    const weeksDiff = Math.floor(
+    const weeksDiff = Math.round(
       (now.getTime() - seasonStart.getTime()) / (7 * 24 * 60 * 60 * 1000)
     );
     const currentGW = Math.max(1, Math.min(38, weeksDiff + 1));
@@ -175,11 +175,11 @@ export class Fixtures implements OnInit, OnDestroy {
 
       const form = this.fb.group({
         homeScore: [
-          existingPrediction?.homeScore ?? 0,
+          existingPrediction?.homeScore ?? '-',
           [Validators.required, Validators.min(0), Validators.max(9)],
         ],
         awayScore: [
-          existingPrediction?.awayScore ?? 0,
+          existingPrediction?.awayScore ?? '-',
           [Validators.required, Validators.min(0), Validators.max(9)],
         ],
       });

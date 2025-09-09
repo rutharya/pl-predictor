@@ -29,11 +29,13 @@ export interface UserStats {
   totalPoints: number;
   predictionsMade: number;
   correctPredictions: number;
+  exactPredictions: number;
+  wrongPredictions: number;
   accuracyRate: number;
   currentStreak: number;
   longestStreak: number;
   favoriteTeam?: string;
-  totalMatches: number;
+  processedPredictionsCount: number;
   perfectWeeks: number;
 }
 
@@ -63,13 +65,15 @@ export class ProfileService {
   error = signal<string | null>(null);
 
   // Computed values
-  accuracyPercentage = computed(() => {
-    const profile = this.userProfile();
-    if (!profile || profile.stats.predictionsMade === 0) return 0;
-    return Math.round(
-      (profile.stats.correctPredictions / profile.stats.predictionsMade) * 100
-    );
-  });
+  // accuracyPercentage = computed(() => {
+  //   const profile = this.userProfile();
+  //   if (!profile || profile.stats.predictionsMade === 0) return 0;
+  //   return Math.round(
+  //     ((profile.stats.correctPredictions + profile.stats.exactPredictions) /
+  //       profile.stats.predictionsMade) *
+  //       100
+  //   );
+  // });
 
   private profileUnsubscribe: Unsubscribe | null = null;
 
@@ -131,10 +135,12 @@ export class ProfileService {
         totalPoints: 0,
         predictionsMade: 0,
         correctPredictions: 0,
+        exactPredictions: 0,
+        wrongPredictions: 0,
         accuracyRate: 0,
         currentStreak: 0,
         longestStreak: 0,
-        totalMatches: 0,
+        processedPredictionsCount: 0,
         perfectWeeks: 0,
       },
       preferences: {

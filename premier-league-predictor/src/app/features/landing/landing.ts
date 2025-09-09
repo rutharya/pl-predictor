@@ -156,9 +156,12 @@ export class Landing implements OnInit, OnDestroy {
       });
 
       this.topPlayers.set(players);
-      this.totalPlayers.set(
-        snapshot.size > 0 ? Math.max(1000, snapshot.size * 20) : 1247
-      );
+      this.totalPlayers.set(snapshot.size);
+
+      // inflate the numbers
+      // this.totalPlayers.set(
+      //   snapshot.size > 0 ? Math.max(1000, snapshot.size * 20) : 1247
+      // );
     } catch (error) {
       console.error('Error loading top players:', error);
       // Set mock data for development
@@ -226,7 +229,7 @@ export class Landing implements OnInit, OnDestroy {
   }
 
   private calculateCurrentGameweek(): number {
-    const seasonStart = new Date('2024-08-17');
+    const seasonStart = new Date('2025-08-17');
     const now = new Date();
     const weeksDiff = Math.floor(
       (now.getTime() - seasonStart.getTime()) / (7 * 24 * 60 * 60 * 1000)
@@ -235,8 +238,8 @@ export class Landing implements OnInit, OnDestroy {
   }
 
   private setupPeriodicUpdates(): void {
-    // Update data every 5 minutes
-    interval(5 * 60 * 1000)
+    // Update data every 2 hours
+    interval(2 * 60 * 60 * 1000)
       .pipe(takeUntil(this.destroy$))
       .subscribe(() => {
         this.loadUpcomingFixtures();
